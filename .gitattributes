@@ -1,0 +1,4 @@
+*.webp binary
+*.mp4 binary
+*.png binary
+index.html text eol=lf

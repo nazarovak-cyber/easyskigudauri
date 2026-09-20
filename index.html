@@ -1,0 +1,1552 @@
+<title>Easy Ski Gudauri</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,700;0,900;1,700;1,900&amp;family=Golos+Text:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Noto+Sans+Georgian:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  /* light theme, palette taken from easyskigudauri.ge */
+  --paper:#FFFFFF;
+  --ink:#10202F;
+  --ink-deep:#0B2A4A;
+
+  --wa:#25D366;
+  --wa-2:#1FBF5C;
+  --wa-ink:#06320F;
+  --tg:#2AABEE;
+  --tg-2:#1E93D1;
+
+  --ice:#0B8A43;      /* green that stays legible as text on white */
+  --ice-2:#12A352;
+  --ice-ink:#06320F;
+
+  /* aliases kept so component rules stay unchanged */
+  --ink-2:#EAF4FB;
+  --ink-3:#DCECF8;
+  --ink-4:#C6DCEC;
+  --line:rgba(11,42,74,.13);
+  --line-2:rgba(11,42,74,.22);
+  --snow:#10202F;
+  --mist:#5A7185;
+  --mist-2:#8398AB;
+  --light:#E4EEF3;
+  --light-2:#CFDEE7;
+
+  --f-display:"Rubik","Noto Sans Georgian","Golos Text",Arial,sans-serif;
+  --f-body:"Golos Text","Noto Sans Georgian","Rubik",Arial,sans-serif;
+  --f-mono:"JetBrains Mono","Noto Sans Georgian",ui-monospace,monospace;
+
+  --gutter:clamp(16px,4vw,64px);
+  --maxw:1320px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--snow);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ice);outline-offset:3px;border-radius:2px}
+
+/* ---------- type ---------- */
+.d{
+  font-family:var(--f-display);
+  font-weight:900;
+  font-style:italic;
+  text-transform:uppercase;
+  letter-spacing:-.03em;
+  line-height:.88;
+  margin:0;
+  text-wrap:balance;
+}
+.d-xl{font-size:clamp(2.9rem,10.5vw,8.2rem)}
+.hero h1.d-xl{font-size:clamp(2.55rem,6.1vw,5.5rem)}
+@media (max-width:1023px){.hero h1.d-xl{font-size:clamp(2.6rem,11vw,4.6rem)}}
+@media (max-width:600px){.hero h1.d-xl{font-size:clamp(1.95rem,8.2vw,3.2rem)}}
+@media (max-width:360px){:root[lang="ka"] .hero h1.d-xl{font-size:6.6vw}}
+.d-l{font-size:clamp(2.2rem,6.6vw,5rem)}
+.d-m{font-size:clamp(1.65rem,4vw,3.1rem)}
+.d-s{font-size:clamp(1.15rem,2.1vw,1.7rem);line-height:.95}
+.accent{color:var(--ice)}
+.hollow{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--ice);
+  paint-order:stroke fill;
+}
+.eyebrow{
+  font-family:var(--f-mono);
+  font-weight:500;
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ice);
+  margin:0 0 18px;
+}
+.eyebrow.muted{color:var(--mist)}
+.eyebrow.place{
+  font-family:var(--f-body);
+  font-weight:600;font-size:.82rem;letter-spacing:.06em;
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(7,10,14,.6);
+  border:1px solid rgba(190,220,235,.24);
+  backdrop-filter:blur(8px);
+  padding:9px 16px;border-radius:999px;
+  color:#F0F6F9;
+}
+.eyebrow.place svg{width:14px;height:14px;flex:0 0 auto;fill:#FF4B3E}
+.lede{
+  font-size:clamp(1rem,1.5vw,1.2rem);
+  color:var(--mist);
+  max-width:60ch;
+  margin:0;
+}
+
+/* ---------- layout ---------- */
+.wrap{
+  width:100%;
+  max-width:var(--maxw);
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+section{position:relative}
+.band{padding-block:clamp(72px,10vw,140px)}
+.band-tight{padding-block:clamp(48px,6vw,84px)}
+.head{display:flex;flex-direction:column;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+
+/* ---------- header ---------- */
+.site-head{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:60;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.site-head .wrap{
+  display:flex;align-items:center;gap:20px;
+  height:66px;
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto}
+.brand img{width:40px;height:auto;border-radius:0}
+.brand span{
+  font-family:var(--f-body);font-weight:700;font-style:normal;
+  text-transform:uppercase;letter-spacing:.03em;font-size:.94rem;line-height:1.15;
+}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mist);text-decoration:none;transition:color .18s;
+}
+.nav a:hover{color:var(--ice)}
+@media (max-width:980px){.nav{display:none}}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  text-transform:uppercase;letter-spacing:-.01em;
+  font-size:.92rem;line-height:1;
+  padding:16px 26px;
+  border-radius:2px;
+  text-decoration:none;
+  background:transparent;
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:transform .15s ease,background .18s,color .18s,border-color .18s;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-ice{background:var(--wa);color:var(--wa-ink)}
+.btn-ice:hover{background:var(--wa-2)}
+.btn-ghost{border-color:var(--line-2);color:var(--snow)}
+.btn-ghost:hover{border-color:var(--ice);color:var(--ice)}
+.btn-tg{background:var(--tg);color:#fff}
+.btn-tg:hover{background:var(--tg-2)}
+.btn-dark{background:var(--ink-deep);color:#fff}
+.btn-dark:hover{background:#10385F}
+.btn-sm{padding:11px 18px;font-size:.78rem}
+.btn svg{width:19px;height:19px;flex:0 0 auto;fill:currentColor}
+.btn-sm svg{width:16px;height:16px}
+
+/* ---------- socials ---------- */
+.socials{display:flex;gap:9px;align-items:center}
+.soc{
+  width:38px;height:38px;flex:0 0 auto;
+  display:grid;place-items:center;
+  border:1px solid var(--line-2);border-radius:999px;
+  color:var(--mist);text-decoration:none;
+  transition:color .18s,border-color .18s,background .18s,transform .15s;
+}
+.soc svg{width:17px;height:17px;fill:currentColor}
+.soc:hover{color:var(--ice);border-color:var(--ice);background:rgba(37,211,102,.14);transform:translateY(-2px)}
+.head-socials{margin-left:4px}
+@media (max-width:1180px){.head-socials{display:none}}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+.lang{display:flex;gap:2px;flex:0 0 auto;margin-left:auto;
+  border:1px solid var(--line-2);border-radius:999px;padding:3px}
+.lang button{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.1em;
+  padding:7px 11px;border:0;border-radius:999px;background:transparent;
+  color:var(--mist);cursor:pointer;transition:background .18s,color .18s;
+}
+.lang button:hover{color:var(--ink)}
+.lang button.on{background:var(--ink-deep);color:#fff}
+@media (max-width:980px){.nav{display:none}.lang{margin-left:auto}}
+@media (max-width:380px){.lang button{padding:7px 9px;font-size:.64rem}}
+
+/* ---------- sticky messenger dock ---------- */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:rgba(255,255,255,.97);
+  border-top:1px solid var(--line-2);
+  box-shadow:0 -10px 34px rgba(11,42,74,.14);
+  padding-block:12px;
+  padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));
+  transform:translateY(110%);
+  transition:transform .32s cubic-bezier(.2,.75,.3,1);
+}
+.dock.show{transform:translateY(0)}
+.dock-in{display:flex;gap:10px}
+.dock .btn{flex:1 1 0;padding:14px 16px;font-size:.86rem}
+@media (min-width:861px){
+  .dock{left:auto;right:24px;bottom:24px;
+    background:none;border:0;box-shadow:none;padding:0;
+    transform:translateY(160%);}
+  .dock.show{transform:translateY(0)}
+  .dock-in{padding:0;width:auto;max-width:none}
+  .dock .btn{flex:0 0 auto;box-shadow:0 12px 34px rgba(11,42,74,.26)}
+}
+@media (prefers-reduced-motion:reduce){.dock{transition:none}}
+body.has-dock{padding-bottom:84px}
+@media (min-width:861px){body.has-dock{padding-bottom:0}}
+@media (max-width:430px){.brand span{font-size:.72rem}.brand img{width:34px}.site-head .wrap{gap:12px}}
+
+/* ---------- hero ---------- */
+.hero{
+  color:#fff;
+  position:relative;
+  min-height:min(86vh,820px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-pic{position:absolute;inset:0;z-index:-2;display:block}
+.hero-pic img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:50% 44%;
+  filter:saturate(1.02) contrast(1.02) brightness(.92);
+}
+@media (min-width:1024px){.hero .wrap>*{max-width:min(640px,54%)}.hero-pic img{object-position:64% 7%}}
+@media (min-width:1024px) and (max-width:1365px){.hero .wrap>*{max-width:46%}}
+:root[lang="ka"] .hero h1{font-size:clamp(2.2rem,6.6vw,4.6rem)}
+:root[lang="ka"] .hero h1 .l3{font-size:.5em}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(to top,rgba(7,10,14,.94) 0%,rgba(7,10,14,.6) 30%,rgba(7,10,14,.1) 62%,rgba(7,10,14,.06) 100%),
+    linear-gradient(to right,rgba(6,16,12,.78) 0%,rgba(7,10,14,.42) 34%,rgba(7,10,14,0) 58%);
+}
+@media (max-width:1023px){
+  .hero{min-height:min(88vh,840px)}
+  .hero-pic img{object-position:74% 44%}
+  .hero::after{background:linear-gradient(to top,rgba(7,10,14,.96) 0%,rgba(7,10,14,.9) 24%,rgba(7,10,14,.72) 40%,rgba(7,10,14,.4) 58%,rgba(7,10,14,.12) 78%,rgba(7,10,14,.06) 100%)}
+  .hero .wrap{padding-block:clamp(28px,6vw,60px) clamp(22px,4vw,40px)}
+  .hero h1{margin-bottom:18px}
+  .hero .lede{margin-bottom:20px}
+}
+@media (max-width:600px){
+  .hero{min-height:max(86vh,196vw)}
+  .hero-pic img{object-position:50% 50%}
+  .hero .wrap{padding-block:20px 26px}
+  .hero h1,.hero .lede{max-width:55%}
+  .hero .lede{margin-bottom:18px;font-size:.92rem}
+  .gift-badge{margin-bottom:16px}
+  .hero::after{background:linear-gradient(to top,rgba(7,10,14,.96) 0%,rgba(7,10,14,.9) 22%,rgba(7,10,14,.74) 42%,rgba(7,10,14,.5) 64%,rgba(7,10,14,.3) 86%,rgba(7,10,14,.24) 100%),linear-gradient(to right,rgba(7,10,14,.72) 0%,rgba(7,10,14,.5) 38%,rgba(7,10,14,.12) 62%,rgba(7,10,14,0) 80%)}
+}
+.hero .wrap{padding-block:clamp(40px,7vw,86px) clamp(28px,4vw,48px)}
+.hero h1{color:#fff}
+.hero h1,.hero .lede{text-shadow:0 2px 22px rgba(7,10,14,.6),0 1px 4px rgba(7,10,14,.45)}
+.hero h1{margin-bottom:26px}
+.hero h1 .l2{
+  display:block;padding-left:0;white-space:nowrap;
+  color:#25D366;
+  text-shadow:none;
+  filter:drop-shadow(0 3px 16px rgba(6,40,20,.55));
+  background-image:linear-gradient(100deg,#25D366 0%,#25D366 38%,#C9FFE0 48%,#7CF0AE 54%,#25D366 64%,#25D366 100%);
+  background-size:260% 100%;
+  background-position:120% 0;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:l2loop 8s ease-in-out .2s infinite;
+}
+@keyframes l2loop{
+  0%   {clip-path:inset(0 100% 0 0);background-position:120% 0}
+  12%  {clip-path:inset(0 -10% 0 0);background-position:70% 0}
+  38%  {clip-path:inset(0 -10% 0 0);background-position:-60% 0}
+  100% {clip-path:inset(0 -10% 0 0);background-position:-60% 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero h1 .l2{animation:none;background-image:none;-webkit-text-fill-color:#25D366}
+}
+.hero h1 .l3{display:block;font-size:.46em;letter-spacing:-.01em;padding-left:0;margin-top:.22em}
+.hero .lede{margin-bottom:28px;color:#C3D4DE}
+.hero-badges{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:30px;
+}
+.chip{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:500;
+  letter-spacing:.11em;text-transform:uppercase;
+  padding:8px 13px;border:1px solid var(--line-2);border-radius:999px;
+  color:#BFD3DE;background:rgba(7,10,14,.4);
+}
+.chip.hot{border-color:var(--ice);color:var(--ice)}
+
+/* ---------- marquee ---------- */
+.ticker{
+  border-block:1px solid var(--line);
+  background:var(--ink-2);
+  overflow:hidden;
+  padding-block:15px;
+}
+.ticker-track{
+  display:flex;gap:0;width:max-content;
+  animation:slide 34s linear infinite;
+}
+.ticker-track span{
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  text-transform:uppercase;font-size:clamp(.95rem,1.9vw,1.35rem);
+  letter-spacing:-.02em;color:var(--mist-2);
+  padding-inline:20px;white-space:nowrap;
+}
+.ticker-track span:nth-child(2n){color:var(--ice);font-size:.7em;padding-inline:4px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+/* ---------- video: vertical shorts rail ---------- */
+.shorts-wrap{position:relative}
+.shorts{
+  display:flex;gap:clamp(12px,1.6vw,20px);
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scroll-padding-left:0;
+  padding-bottom:6px;
+  scrollbar-width:thin;scrollbar-color:var(--line-2) transparent;
+}
+.shorts::-webkit-scrollbar{height:6px}
+.shorts::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:99px}
+.short{
+  flex:0 0 auto;
+  width:clamp(250px,70vw,352px);
+  aspect-ratio:9/16;max-width:100%;
+  position:relative;overflow:hidden;border-radius:4px;
+  scroll-snap-align:start;
+  background:var(--ink-deep);
+  border:1px solid var(--line);
+  isolation:isolate;
+}
+.short video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
+  background:var(--ink-deep);
+}
+.short::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to top,rgba(8,26,45,.85),rgba(8,26,45,.12) 45%,rgba(8,26,45,.4));
+  transition:opacity .3s;
+}
+.short.playing::after{opacity:0}
+.short-face{
+  position:absolute;inset:0;z-index:3;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:18px;background:none;border:0;cursor:pointer;
+  color:#fff;font:inherit;text-align:left;width:100%;
+}
+.short-idx{
+  font-family:var(--f-mono);font-weight:700;font-size:.72rem;letter-spacing:.2em;
+  color:#25D366;
+}
+.short-mid{display:flex;align-items:center;justify-content:center;gap:14px}
+.short-play{
+  width:62px;height:62px;border-radius:50%;background:var(--wa);
+  display:grid;place-items:center;flex:0 0 auto;
+  box-shadow:0 10px 34px rgba(6,40,20,.5);
+  transition:transform .2s ease,background .2s;
+}
+.short-face:hover .short-play{transform:scale(1.08);background:var(--wa-2)}
+.short-play::before{
+  content:"";width:0;height:0;margin-left:5px;
+  border-left:19px solid var(--wa-ink);
+  border-block:11px solid transparent;
+}
+.short-cap{
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  text-transform:uppercase;font-size:1.02rem;letter-spacing:-.02em;
+  text-shadow:0 2px 16px rgba(7,10,14,.7);
+}
+.short-gate{
+  position:absolute;inset:0;z-index:5;display:grid;place-items:center;
+  background:rgba(8,26,45,.94);padding:20px;text-align:center;
+}
+.short-gate p{color:#B6C6D2;font-size:.85rem;line-height:1.5;margin:0 0 16px}
+.short-yt{
+  position:absolute;top:14px;right:14px;z-index:4;
+  width:34px;height:34px;border-radius:999px;
+  display:grid;place-items:center;
+  background:rgba(8,26,45,.7);border:1px solid rgba(255,255,255,.28);
+  color:#fff;text-decoration:none;
+  transition:background .18s,border-color .18s,transform .15s;
+}
+.short-yt svg{width:15px;height:15px;fill:currentColor}
+.short-yt:hover{background:#FF0033;border-color:#FF0033;transform:scale(1.06)}
+.rail-nav{
+  display:flex;gap:10px;margin-top:20px;align-items:center;
+}
+.rail-hint{
+  margin:14px 0 0;font-size:.82rem;color:var(--mist-2);
+}
+.rail-hint a{color:var(--ice);text-decoration:none;border-bottom:1px solid rgba(37,211,102,.4)}
+.rail-hint a:hover{border-bottom-color:var(--ice)}
+.rail-btn{
+  width:44px;height:44px;border-radius:999px;
+  border:1px solid var(--line-2);background:transparent;color:var(--ink);
+  display:grid;place-items:center;cursor:pointer;
+  transition:border-color .18s,background .18s,color .18s,opacity .18s;
+}
+.rail-btn:hover:not(:disabled){border-color:var(--ice);color:var(--ice);background:rgba(37,211,102,.1)}
+.rail-btn:disabled{opacity:.3;cursor:default}
+.rail-btn svg{width:17px;height:17px;fill:currentColor}
+
+/* ---------- prices ---------- */
+.prices{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--line);
+  border-radius:3px;
+  overflow:hidden;
+  background:var(--ink-2);
+}
+.price{
+  padding:clamp(22px,2.4vw,32px) clamp(16px,1.8vw,24px);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:6px;
+  transition:background .2s;
+}
+.price:last-child{border-right:none}
+.price:hover{background:var(--ink-3)}
+.price h3{
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  text-transform:uppercase;font-size:1.05rem;letter-spacing:-.02em;
+  line-height:1.05;margin:0;
+}
+.price p{margin:0;color:var(--mist-2);font-size:.85rem;line-height:1.35;min-height:2.5em}
+.price .usd{
+  display:block;margin-top:4px;
+  font-family:var(--f-mono);font-weight:500;font-size:.8rem;
+  letter-spacing:-.01em;color:var(--mist-2);
+  font-variant-numeric:tabular-nums;
+}
+.price .amount.ask{
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  text-transform:uppercase;letter-spacing:-.02em;
+  font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.1;color:var(--ice);
+}
+.price .amount{
+  font-family:var(--f-mono);font-weight:700;
+  font-size:clamp(1.5rem,2.6vw,2.05rem);
+  letter-spacing:-.04em;
+  color:var(--snow);margin-top:auto;padding-top:14px;
+  font-variant-numeric:tabular-nums;
+}
+.price.feature{background:rgba(37,211,102,.07)}
+.price.feature h3{color:var(--ice)}
+.price.feature .amount{color:var(--ice)}
+@media (max-width:1080px){
+  .prices{grid-template-columns:repeat(2,1fr)}
+  .price{border-bottom:1px solid var(--line)}
+  .price:nth-child(2n){border-right:none}
+  .price:nth-last-child(-n+2){border-bottom:none}
+  .price p{min-height:0}
+}
+@media (max-width:430px){
+  .prices{grid-template-columns:1fr}
+  .price{border-right:none;border-bottom:1px solid var(--line)}
+  .price:last-child{border-bottom:none}
+}
+.note{
+  margin:26px 0 0;color:var(--mist);font-size:.92rem;max-width:62ch;
+}
+
+/* ---------- stats ---------- */
+.stats-band{border-block:1px solid var(--line)}
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--line);
+}
+.stat{background:var(--paper);padding:clamp(26px,3.5vw,46px) clamp(14px,2vw,28px)}
+.stat:first-child{padding-left:0}
+.stat b{
+  display:block;
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  font-size:clamp(2.2rem,5.6vw,4.2rem);line-height:.9;letter-spacing:-.04em;
+  color:var(--ice);
+}
+.stat span{
+  display:block;margin-top:10px;
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mist-2);
+}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- method cards ---------- */
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+@media (max-width:860px){.cards-3{grid-template-columns:1fr}}
+.card{
+  background:var(--ink-2);
+  padding:clamp(26px,3vw,40px);
+  display:flex;flex-direction:column;gap:14px;
+  transition:background .2s;
+}
+.card:hover{background:var(--ink-3)}
+.card h3{margin:0}
+.card p{margin:0;color:var(--mist);font-size:.95rem}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,34px)}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding-top:26px;border-top:2px solid var(--ink-4)}
+.step:first-child{border-top-color:var(--wa)}
+.step .num{
+  font-family:var(--f-mono);font-weight:700;font-size:.74rem;
+  letter-spacing:.2em;color:var(--ice);display:block;margin-bottom:14px;
+}
+.step h3{margin:0 0 10px}
+.step p{margin:0;color:var(--mist);font-size:.93rem}
+
+/* ---------- gallery ---------- */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:clamp(8px,1vw,14px);
+}
+.gallery figure{margin:0;overflow:hidden;border-radius:2px;aspect-ratio:3/4;max-width:100%}
+.gallery img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:transform .7s cubic-bezier(.2,.7,.3,1),filter .4s}
+.gallery figure:hover img{transform:scale(1.06);filter:saturate(1.05)}
+@media (max-width:900px){
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+}
+
+/* ---------- split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,22px)}
+@media (max-width:760px){.split{grid-template-columns:1fr}}
+.panel{
+  position:relative;overflow:hidden;border-radius:3px;
+  min-height:clamp(340px,44vw,520px);
+  display:flex;align-items:flex-end;
+  isolation:isolate;
+}
+.panel img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  filter:brightness(.72) saturate(.85);
+  transform-origin:50% 45%;
+  animation:panelZoom 11s ease-in-out infinite;
+}
+.split .panel:nth-child(2) img{animation-delay:5.5s}
+@keyframes panelZoom{
+  0%,4%    {transform:scale(1)}
+  20%,30%  {transform:scale(1.09)}
+  46%,100% {transform:scale(1)}
+}
+.panel:hover img{animation-play-state:paused}
+/* keep the board in frame on the snowboard panel */
+.split .panel:nth-child(2) img{object-position:50% 62%}
+@media (prefers-reduced-motion:reduce){.panel img{animation:none}}
+.panel::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(7,10,14,.94),rgba(7,10,14,.1) 62%);
+}
+.panel .inner{padding:clamp(22px,3vw,38px)}
+.panel p{margin:12px 0 0;color:#C0D2DD;font-size:.95rem;max-width:34ch}
+
+/* ---------- extras (sunset) ---------- */
+.extras{position:relative;isolation:isolate;overflow:hidden}
+.extras>img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  filter:saturate(.95) brightness(.66);
+}
+.extras::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to bottom,rgba(7,10,14,.84),rgba(7,10,14,.6) 45%,rgba(7,10,14,.92));
+}
+.extras-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-bottom:34px}
+@media (max-width:900px){.extras-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.extras-grid{grid-template-columns:1fr}}
+.extra{
+  background:rgba(10,15,20,.82);
+  padding:clamp(22px,2.6vw,34px);
+  display:flex;flex-direction:column;gap:12px;
+  transition:background .2s;
+}
+.extra:hover{background:rgba(18,28,36,.92)}
+.extra p{margin:0;color:var(--mist);font-size:.92rem}
+
+/* ---------- advantages ---------- */
+.adv{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px)}
+@media (max-width:860px){.adv{grid-template-columns:1fr}}
+.adv-item{display:flex;flex-direction:column;gap:14px}
+.adv-item .mark{
+  font-family:var(--f-mono);font-weight:700;font-size:.72rem;letter-spacing:.2em;
+  color:var(--wa-ink);background:var(--wa);
+  width:max-content;padding:6px 11px;border-radius:2px;
+}
+.adv-item h3{margin:0}
+.adv-item p{margin:0;color:var(--mist);font-size:.95rem}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  list-style:none;cursor:pointer;
+  padding:clamp(20px,2.4vw,30px) 46px clamp(20px,2.4vw,30px) 0;
+  position:relative;
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  text-transform:uppercase;letter-spacing:-.02em;
+  font-size:clamp(1rem,2vw,1.45rem);line-height:1.1;
+  transition:color .18s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--ice)}
+.faq summary::after{
+  content:"";position:absolute;right:8px;top:50%;
+  width:14px;height:2px;background:var(--wa);
+  transform:translateY(-50%);
+}
+.faq summary::before{
+  content:"";position:absolute;right:14px;top:50%;
+  width:2px;height:14px;background:var(--wa);
+  transform:translateY(-50%);transition:transform .22s;
+}
+.faq details[open] summary::before{transform:translateY(-50%) scaleY(0)}
+.faq details[open] summary{color:var(--ice)}
+.faq .answer{padding:0 0 clamp(22px,2.4vw,32px);color:var(--mist);max-width:70ch;margin:0}
+
+/* ---------- first time ---------- */
+.q-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.q-list div{
+  border-bottom:1px solid var(--line);
+  padding:clamp(16px,2vw,24px) 0;
+  display:flex;align-items:baseline;gap:18px;
+}
+.q-list em{
+  font-family:var(--f-mono);font-style:normal;font-size:.72rem;
+  letter-spacing:.18em;color:var(--ice);flex:0 0 auto;
+}
+.q-list b{
+  font-family:var(--f-display);font-weight:900;font-style:italic;
+  text-transform:uppercase;letter-spacing:-.02em;
+  font-size:clamp(1rem,2vw,1.4rem);line-height:1.1;
+}
+
+/* ---------- final cta ---------- */
+.final{
+  position:relative;isolation:isolate;overflow:hidden;
+  color:#EDF4F8;text-align:left;
+}
+.final>img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;
+  z-index:-2;filter:saturate(.95) brightness(.7);
+}
+.final::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(to right,rgba(11,42,74,.92) 0%,rgba(11,42,74,.72) 42%,rgba(11,42,74,.35) 72%,rgba(11,42,74,.25) 100%),
+    linear-gradient(to bottom,rgba(8,26,45,.72),rgba(8,26,45,.5));
+}
+.final .d{color:#fff}
+.final .accent{color:#25D366}
+.final p{color:#BCCEDB;font-size:clamp(1rem,1.6vw,1.2rem);max-width:52ch;margin:20px 0 32px}
+.final .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.final .btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--line);background:var(--ink-2)}
+.foot-grid{
+  display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-start;
+  padding-block:clamp(36px,5vw,58px);
+}
+.foot-grid .col{display:flex;flex-direction:column;gap:9px;min-width:150px}
+.foot-grid h4{
+  margin:0 0 4px;font-family:var(--f-mono);font-size:.68rem;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mist-2);
+}
+.foot-grid a{color:var(--mist);text-decoration:none;font-size:.95rem;transition:color .18s}
+.foot-grid a:hover{color:var(--ice)}
+.foot-bar{
+  border-top:1px solid var(--line);
+  padding-block:18px;
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--mist-2);
+  display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;
+}
+
+/* ---------- dark islands on a light page ---------- */
+.panel{color:#fff}
+.panel .inner h3{color:#fff}
+.extras{color:#EDF4F8}
+.extras .lede,.extras .extra p{color:#A9BCC8}
+.extras .extra{background:rgba(9,16,24,.86)}
+.extras .extra:hover{background:rgba(18,30,42,.92)}
+.extras .extras-grid{background:rgba(255,255,255,.14)}
+.extras .extra h3{color:#fff}
+.extras .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.extras .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff}
+.video-gate p{color:#B6C6D2}
+
+/* ---------- legal: modals & cookie bar ---------- */
+.modal{border:0;padding:0;background:transparent;max-width:min(780px,94vw);width:100%;color:var(--snow)}
+.modal::backdrop{background:rgba(11,42,74,.58)}
+.modal-inner{
+  background:var(--paper);border:1px solid var(--line-2);border-radius:4px;
+  box-shadow:0 30px 80px rgba(11,42,74,.25);
+  max-height:86vh;overflow-y:auto;padding:clamp(22px,3.4vw,44px);
+  position:relative;
+}
+.modal-close{
+  position:sticky;top:0;float:right;margin:-6px -6px 0 12px;
+  width:38px;height:38px;flex:0 0 auto;border-radius:999px;
+  background:var(--ink-3);border:1px solid var(--line-2);color:var(--snow);
+  font-size:20px;line-height:1;cursor:pointer;
+}
+.modal-close:hover{background:var(--ice);color:var(--ink);border-color:var(--ice)}
+.doc h2{margin:0 0 6px;padding-right:56px}
+.doc .rev{padding-right:56px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist-2);margin:0 0 26px}
+.doc h3{
+  font-family:var(--f-display);font-weight:900;font-style:italic;text-transform:uppercase;
+  letter-spacing:-.02em;font-size:1.02rem;line-height:1.15;color:var(--ice);
+  margin:26px 0 8px;
+}
+.doc p,.doc li{color:var(--mist);font-size:.94rem;line-height:1.62;margin:0 0 10px}
+.doc ul{margin:0 0 10px;padding-left:20px}
+.doc li{margin-bottom:6px}
+.doc a{color:var(--ice)}
+.doc .kv{
+  display:grid;grid-template-columns:auto 1fr;gap:6px 18px;
+  margin:0 0 10px;font-size:.94rem;
+}
+.doc .kv dt{color:var(--mist-2)}
+.doc .kv dd{margin:0;color:var(--snow)}
+@media (max-width:520px){.doc .kv{grid-template-columns:1fr;gap:2px 0}.doc .kv dd{margin-bottom:10px}}
+
+@media (max-width:760px){}
+.legal-note{
+  margin:14px 0 0;font-size:.76rem;line-height:1.5;color:var(--mist-2);max-width:56ch;
+}
+.legal-note a{color:var(--mist);text-decoration:underline;text-underline-offset:2px}
+.legal-note a:hover{color:var(--ice)}
+.gift-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  margin:0 0 22px;padding:11px 18px;
+  border:1px solid var(--wa);border-radius:999px;
+  background:rgba(37,211,102,.14);
+  backdrop-filter:blur(8px);
+  color:#EAF7EF;line-height:1.2;
+  font-size:clamp(.7rem,3.05vw,.92rem);
+  white-space:nowrap;max-width:100%;
+}
+.gift-badge .emo{font-size:1.15rem;line-height:1;flex:0 0 auto}
+.gift-badge .ig{width:1.05em;height:1.05em;flex:0 0 auto;fill:#fff;vertical-align:-.15em;margin:0 .1em}
+.gift-badge b{color:#5BE894;font-weight:600}
+@media (max-width:430px){.gift-badge{padding:10px 13px;gap:8px}}
+
+/* ---------- gift section ---------- */
+.gift-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,64px);align-items:center}
+@media (max-width:860px){.gift-grid{grid-template-columns:1fr}}
+.gift-list{display:flex;flex-direction:column;gap:18px;margin:28px 0 0}
+.gift-item{display:flex;gap:16px;align-items:flex-start}
+.gift-item .n{
+  flex:0 0 auto;width:34px;height:34px;border-radius:999px;
+  background:var(--wa);color:var(--wa-ink);
+  display:grid;place-items:center;
+  font-family:var(--f-mono);font-weight:700;font-size:.78rem;
+}
+.gift-item h3{margin:0 0 4px;font-size:1rem;font-weight:600;color:var(--ink)}
+.gift-item p{margin:0;color:var(--mist);font-size:.94rem}
+.gift-sec{position:relative;isolation:isolate;overflow:hidden}
+.gift-sec>.bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  z-index:-1;opacity:.1;filter:grayscale(.2);
+}
+.gift-stack{
+  position:relative;width:100%;aspect-ratio:1/1.02;max-width:100%;margin:0;
+}
+.gift-stack figure{
+  position:absolute;margin:0;
+  width:47%;aspect-ratio:9/16;
+  border-radius:14px;overflow:hidden;
+  border:7px solid #fff;
+  box-shadow:0 22px 50px rgba(11,42,74,.26);
+  background:#fff;
+  transition:transform .45s cubic-bezier(.2,.7,.3,1);
+}
+.gift-stack figure img{width:100%;height:100%;object-fit:cover;display:block}
+.gift-stack .s1{left:0;top:4%;transform:rotate(-8deg);z-index:1}
+.gift-stack .s1 img{object-position:50% 50%}
+.gift-stack .s2{left:29%;top:0;transform:rotate(1.5deg);z-index:3}
+.gift-stack .s3{right:0;top:9%;transform:rotate(8deg);z-index:2}
+.gift-stack:hover .s1{transform:rotate(-11deg) translateY(-6px)}
+.gift-stack:hover .s2{transform:rotate(1.5deg) translateY(-10px)}
+.gift-stack:hover .s3{transform:rotate(11deg) translateY(-6px)}
+@media (prefers-reduced-motion:reduce){.gift-stack figure{transition:none}}
+@media (max-width:860px){
+  .gift-stack{aspect-ratio:1/.92;margin-top:8px}
+  .gift-stack figure{width:44%}
+}
+.hero .legal-note{color:#C2D2DD;text-shadow:0 1px 8px rgba(7,10,14,.8)}
+.hero .legal-note a{color:#E3EDF3}
+.final .legal-note{color:#93A9B8}
+.final .legal-note a{color:#D3E0E9}
+.video-gate{
+  position:absolute;inset:0;z-index:3;display:grid;place-items:center;
+  background:rgba(7,10,14,.9);padding:24px;text-align:center;
+}
+.video-gate p{max-width:44ch;color:var(--mist);font-size:.92rem;margin:0 0 18px}
+.linkbtn{
+  background:none;border:0;padding:0;color:inherit;font:inherit;
+  text-decoration:underline;text-underline-offset:2px;cursor:pointer;
+}
+.linkbtn:hover{color:var(--ice)}
+
+/* ---------- reveal ---------- */
+.rise{animation:rise .8s cubic-bezier(.2,.7,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .rise{animation:none}
+  *{scroll-behavior:auto!important}
+}
+@media (max-width:560px){
+  .d-l,.d-xl{line-height:.94}
+  .d-m{line-height:.96}
+}
+:root[lang="ka"] .d,
+:root[lang="ka"] .btn,
+:root[lang="ka"] .eyebrow,
+:root[lang="ka"] .short-cap,
+:root[lang="ka"] .price h3,
+:root[lang="ka"] .q-list b,
+:root[lang="ka"] .faq summary,
+:root[lang="ka"] .doc h3,
+:root[lang="ka"] .amount.ask,
+:root[lang="ka"] .ticker-track span,
+:root[lang="ka"] .adv-item h3,
+:root[lang="ka"] .step h3{
+  font-style:normal;text-transform:none;letter-spacing:-.01em;
+}
+:root[lang="ka"] .d{line-height:1.04}
+:root[lang="ka"] .hollow{-webkit-text-stroke-width:1.2px}
+@media (max-width:400px){.gift-sec h2{font-size:clamp(1.8rem,8.3vw,2.6rem)}}
+html{scroll-behavior:smooth}
+</style>
+<svg aria-hidden="true" focusable="false" height="0" style="position:absolute" width="0">
+<symbol id="i-wa" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></symbol>
+<symbol id="i-tg" viewbox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0Zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635Z"></path></symbol>
+<symbol id="i-ig" viewbox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.741 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.741 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0Zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03Zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z"></path></symbol>
+<symbol id="i-cam" viewbox="0 0 24 24"><path d="M9.4 4a2 2 0 0 0-1.6.8L6.9 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2.9l-.9-1.2A2 2 0 0 0 14.6 4H9.4Zm2.6 4.8a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4Zm0 2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Z"></path></symbol>
+<symbol id="i-gift" viewbox="0 0 24 24"><path d="M12 4.6a3 3 0 0 1 5.3-1.9 2.9 2.9 0 0 1 .4 3.3H20a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1h-8V6.4Zm-2 0V11H3a1 1 0 0 1-1-1V8a2 2 0 0 1 2-2h2.3A2.9 2.9 0 0 1 6.7 2.7 3 3 0 0 1 10 4.6ZM8.7 4.2A1 1 0 0 0 8 6h2v-.6a1 1 0 0 0-1.3-1.2Zm6.6 0A1 1 0 0 0 14 5.4V6h2a1 1 0 0 0-.7-1.8ZM3 13h7v8H5a2 2 0 0 1-2-2v-6Zm11 0h7v6a2 2 0 0 1-2 2h-5v-8Z"></path></symbol>
+<symbol id="i-yt" viewbox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"></path></symbol>
+<symbol id="i-pin" viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"></path></symbol>
+<symbol id="i-fb" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073Z"></path></symbol>
+</svg>
+<header class="site-head">
+<div class="wrap">
+<a class="brand" href="#top">
+<img alt="" src="img/mark-dark.png"/>
+<span data-t="t154">Easy Ski<br/>Gudauri</span>
+</a>
+<nav class="nav">
+<a data-t="t1" href="#price">Стоимость</a>
+<a data-t="t2" href="#method">Метод</a>
+<a data-t="t3" href="#lesson">Урок</a>
+<a data-t="t4" href="#gudauri">Гудаури</a>
+<a data-t="t5" href="#faq">Вопросы</a>
+</nav>
+<div class="socials head-socials">
+<a aria-label="Instagram" class="soc" href="https://www.instagram.com/" rel="noopener" target="_blank"><svg><use href="#i-ig"></use></svg></a>
+<a aria-label="Facebook" class="soc" href="https://www.facebook.com/" rel="noopener" target="_blank"><svg><use href="#i-fb"></use></svg></a>
+<a aria-label="Telegram" class="soc" href="https://t.me/kseniia_nazarova" rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg></a>
+</div>
+<div aria-label="Site language" class="lang" role="group">
+<button class="on" data-lang="ru" type="button">RU</button>
+<button data-lang="en" type="button">EN</button>
+<button data-lang="ka" type="button">KA</button>
+</div>
+</div>
+</header>
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+<picture class="hero-pic">
+<source media="(max-width:600px)" srcset="img/hero-tall.webp"/>
+<img alt="Инструктор Easy Ski Gudauri в жёлтом худи школы на лыжах, за спиной — заснеженный хребет" src="img/hero-wide.webp"/>
+</picture>
+<div class="wrap rise">
+<p class="eyebrow place" data-t="t6"><svg><use href="#i-pin"></use></svg>Гудаури, Грузия</p>
+<h1 class="d d-xl" data-t="t18">
+        Научим<br/>катать
+        <span class="l2 accent">за 2 часа</span>
+<span class="l3">Лыжи или сноуборд</span>
+</h1>
+<p class="lede" data-t="t50">С нуля до уверенного спуска — безопасно, понятно и в комфортном темпе. Напишите нам — подберём инструктора и время.</p>
+<p class="gift-badge" data-t="t112"><svg class="ig"><use href="#i-ig"></use></svg>Фото и видеосъёмка — <b>в подарок</b> <span class="emo">🎁</span></p>
+<div class="btn-row">
+<a class="btn btn-ice" data-t="t158" data-t-mode="tail" href="https://wa.me/995591225289?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg>Написать в WhatsApp</a>
+<a class="btn btn-tg" data-t="t159" data-t-mode="tail" href="https://t.me/kseniia_nazarova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg>Написать в Telegram</a>
+</div>
+<p class="legal-note" data-t="t113">Нажимая кнопку, вы переходите в мессенджер и передаёте нам свой контакт. Как мы с ним обращаемся — в <button class="linkbtn" data-doc="privacy">Политике конфиденциальности</button>.</p>
+</div>
+</section>
+<!-- TICKER -->
+<div class="ticker">
+<div class="ticker-track">
+<span data-t="t135">Отвечаем за 5 минут</span><span data-t="t136">◆</span><span data-t="t137">Индивидуально и в группах</span><span data-t="t138">◆</span><span data-t="t139">Обучение с нуля</span><span data-t="t140">◆</span><span data-t="t141">Детям — от 3 лет</span><span data-t="t142">◆</span>
+<span aria-hidden="true" data-t="t143">Отвечаем за 5 минут</span><span aria-hidden="true" data-t="t144">◆</span><span aria-hidden="true" data-t="t145">Индивидуально и в группах</span><span aria-hidden="true" data-t="t146">◆</span><span aria-hidden="true" data-t="t147">Обучение с нуля</span><span aria-hidden="true" data-t="t148">◆</span><span aria-hidden="true" data-t="t149">Детям — от 3 лет</span><span aria-hidden="true" data-t="t150">◆</span>
+</div>
+</div>
+<!-- VIDEO -->
+<section class="band">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t7">Видео</p>
+<h2 class="d d-l" data-t="t19">Посмотрите,<br/><span class="accent">как проходят</span><br/>наши уроки</h2>
+<p class="lede" data-t="t51">Короткие ролики со склона Гудаури: занятие со взрослым, первые спуски ребёнка и вечернее катание на закате.</p>
+</div>
+<div class="shorts-wrap">
+<div class="shorts" id="shorts">
+<article class="short" id="sh01">
+<video aria-label="Занятие со взрослым учеником на склоне Гудаури" controls-list="nodownload" playsinline="" poster="img/v1-poster.webp" preload="none" src="vid/v1.mp4"></video>
+<button aria-label="Смотреть: Взрослые" class="short-face" type="button">
+<span class="short-idx">01</span>
+<span class="short-mid"><span class="short-play"></span></span>
+<span class="short-cap" data-t="t109">Взрослые</span>
+</button>
+</article>
+<article class="short" id="sh02">
+<video aria-label="Ребёнок учится спускаться на лыжах" controls-list="nodownload" playsinline="" poster="img/v2-poster.webp" preload="none" src="vid/v2.mp4"></video>
+<button aria-label="Смотреть: Дети" class="short-face" type="button">
+<span class="short-idx">02</span>
+<span class="short-mid"><span class="short-play"></span></span>
+<span class="short-cap" data-t="t110">Дети</span>
+</button>
+</article>
+<article class="short" id="sh03">
+<video aria-label="Спуск на закате над Гудаури" controls-list="nodownload" playsinline="" poster="img/v3-poster.webp" preload="none" src="vid/v3.mp4"></video>
+<button aria-label="Смотреть: Закат" class="short-face" type="button">
+<span class="short-idx">03</span>
+<span class="short-mid"><span class="short-play"></span></span>
+<span class="short-cap" data-t="t111">Закат</span>
+</button>
+</article>
+</div>
+<div class="rail-nav">
+<button aria-label="Предыдущий ролик" class="rail-btn" id="railPrev" type="button"><svg viewbox="0 0 24 24"><path d="M15.7 4.3a1 1 0 0 1 0 1.4L9.4 12l6.3 6.3a1 1 0 0 1-1.4 1.4l-7-7a1 1 0 0 1 0-1.4l7-7a1 1 0 0 1 1.4 0Z"></path></svg></button>
+<button aria-label="Следующий ролик" class="rail-btn" id="railNext" type="button"><svg viewbox="0 0 24 24"><path d="M8.3 4.3a1 1 0 0 0 0 1.4L14.6 12l-6.3 6.3a1 1 0 1 0 1.4 1.4l7-7a1 1 0 0 0 0-1.4l-7-7a1 1 0 0 0-1.4 0Z"></path></svg></button>
+</div>
+</div>
+</div>
+</section>
+<!-- PRICE -->
+<section class="band" id="price" style="background:var(--ink-2);border-block:1px solid var(--line)">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t8">Стоимость</p>
+<h2 class="d d-l" data-t="t20">Занятия<br/><span class="accent">2 часа</span></h2>
+<p class="lede" data-t="t52">Чем больше ваша компания, тем выгоднее стоимость для каждого участника.</p>
+</div>
+<div class="prices">
+<div class="price feature">
+<h3 data-t="t59">Индивидуально</h3>
+<p data-t="t63">Всё внимание инструктора — вам</p>
+<span class="amount">300 <small style="font-size:.5em;letter-spacing:0">GEL</small></span>
+<span class="usd">≈ $115</span>
+</div>
+<div class="price">
+<h3 data-t="t60">2 человека</h3>
+<p data-t="t64">Общая стоимость занятия</p>
+<span class="amount">400 <small style="font-size:.5em;letter-spacing:0">GEL</small></span>
+<span class="usd">≈ $155</span>
+</div>
+<div class="price">
+<h3 data-t="t61">3 человека</h3>
+<p data-t="t65">Общая стоимость занятия</p>
+<span class="amount">500 <small style="font-size:.5em;letter-spacing:0">GEL</small></span>
+<span class="usd">≈ $190</span>
+</div>
+<div class="price">
+<h3 data-t="t62">Больше трёх</h3>
+<p data-t="t66">Обсуждается индивидуально — напишите нам, подберём формат и стоимость</p>
+<span class="amount ask" data-t="t67">Напишите нам</span>
+</div>
+</div>
+<p class="note" data-t="t56">В группе с одним инструктором — не больше трёх человек. Если вас больше, соберём несколько групп или предложим другой формат: напишите нам количество участников, возраст и уровень. Экипировка и ски-пасс оплачиваются отдельно. Цены в долларах указаны справочно по текущему курсу, расчёт — в лари.</p>
+<div class="btn-row" style="margin-top:26px">
+<a class="btn btn-ice" data-t="t160" data-t-mode="tail" href="https://wa.me/995591225289?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%BE%D0%B5%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B8%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%B4%D0%B2%D1%83%D1%85%D1%87%D0%B0%D1%81%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D1%8F." rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg>Уточнить в WhatsApp</a>
+<a class="btn btn-tg" data-t="t161" data-t-mode="tail" href="https://t.me/kseniia_nazarova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%BE%D0%B5%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B8%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%B4%D0%B2%D1%83%D1%85%D1%87%D0%B0%D1%81%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D1%8F." rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg>Уточнить в Telegram</a>
+</div>
+</div>
+</section>
+<!-- STATS -->
+<section class="stats-band">
+<div class="wrap">
+<div class="stats">
+<div class="stat"><b>11+</b><span data-t="t68">лет преподавания</span></div>
+<div class="stat"><b>20+</b><span data-t="t69">лет на лыжах</span></div>
+<div class="stat"><b>1000+</b><span data-t="t70">учеников</span></div>
+<div class="stat"><b>3+</b><span data-t="t71">возраст учеников</span></div>
+</div>
+</div>
+</section>
+<!-- GIFT -->
+<section class="band gift-sec" style="background:var(--ink-2);border-block:1px solid var(--line)">
+<img alt="" class="bg" src="img/group-wide.webp"/>
+<div class="wrap">
+<div class="gift-grid">
+<div>
+<p class="eyebrow" data-t="t9"><svg style="width:13px;height:13px;vertical-align:-2px;fill:var(--ice);margin-right:6px"><use href="#i-gift"></use></svg>Каждому ученику</p>
+<h2 class="d d-l" data-t="t21">Фото и видеосъёмка<br/><span class="accent">в подарок</span></h2>
+<p class="lede" data-t="t53" style="margin-top:22px">Инструктор снимает вас прямо во время занятия. После урока мы монтируем короткий вертикальный ролик под Instagram и отбираем лучшие кадры — вам останется только выложить.</p>
+<div class="gift-list">
+<div class="gift-item">
+<span class="n">01</span>
+<div>
+<h3 data-t="t72">Снимаем по ходу урока</h3>
+<p data-t="t75">Не устраиваем фотосессию и не тратим ваше оплаченное время — ловим момент, пока вы катаетесь.</p>
+</div>
+</div>
+<div class="gift-item">
+<span class="n">02</span>
+<div>
+<h3 data-t="t73">Монтируем вертикальный ролик</h3>
+<p data-t="t76">Готовый рилс под Instagram: нарезка, музыка, правильный формат 9:16.</p>
+</div>
+</div>
+<div class="gift-item">
+<span class="n">03</span>
+<div>
+<h3 data-t="t74">Отдаём в мессенджер</h3>
+<p data-t="t77">Присылаем ролик и фотографии в WhatsApp или Telegram после занятия. Файлы ваши — публикуйте где хотите.</p>
+</div>
+</div>
+</div>
+<p class="note" data-t="t57" style="margin-top:26px">Сколько получится кадров, зависит от погоды и формата занятия: в ясный день материала больше, в метель снимаем меньше. Отмечать нас в публикации необязательно, но нам будет приятно.</p>
+<div class="btn-row" style="margin-top:26px">
+<a class="btn btn-ice" data-t="t162" data-t-mode="tail" href="https://wa.me/995591225289?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg>Записаться на занятие</a>
+<a class="btn btn-tg" data-t="t163" data-t-mode="tail" href="https://t.me/kseniia_nazarova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg>Написать в Telegram</a>
+</div>
+</div>
+<div class="gift-stack">
+<figure class="s1"><img alt="Кадр с занятия: две ученицы Easy Ski на гребне над Гудаури" src="img/g4.webp"/></figure>
+<figure class="s2"><img alt="Кадр с занятия: инструктор с девочкой на вершине над Гудаури" src="img/g1.webp"/></figure>
+<figure class="s3"><img alt="Кадр с занятия: юная лыжница на подготовленной трассе Гудаури" src="img/g8.webp"/></figure>
+</div>
+</div>
+</div>
+</section>
+<!-- METHOD -->
+<section class="band" id="method">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t10">Метод</p>
+<h2 class="d d-l" data-t="t22">Что вы освоите<br/><span class="hollow">за первое</span><br/>занятие</h2>
+<p class="lede" data-t="t54">Освоите базовую стойку, торможение и контроль скорости. Результат зависит от возраста, физической подготовки и выбранного формата.</p>
+</div>
+</div>
+<div class="wrap">
+<div class="cards-3">
+<div class="card">
+<h3 class="d d-s accent" data-t="t23">Маленькие группы</h3>
+<p data-t="t78">Не больше 2–3 человек на инструктора — или полностью индивидуально. Инструктор видит именно твою ошибку, а не выравнивает всех под одну программу.</p>
+</div>
+<div class="card">
+<h3 class="d d-s accent" data-t="t24">Понятная последовательность</h3>
+<p data-t="t79">Каждое упражнение готовит к следующему: сначала равновесие и торможение, потом повороты, потом первый спуск. Без лишних теорий на морозе.</p>
+</div>
+<div class="card">
+<h3 class="d d-s accent" data-t="t25">Склон под твой уровень</h3>
+<p data-t="t80">Начинаем там, где безопасно и спокойно, и переходим дальше только когда ты действительно готов — а не потому что «так по расписанию».</p>
+</div>
+</div>
+</div>
+</section>
+<!-- LESSON STEPS -->
+<section class="band" id="lesson" style="background:var(--ink-2);border-block:1px solid var(--line)">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t11">Формат урока</p>
+<h2 class="d d-l" data-t="t26">Ваш урок —<br/><span class="accent">шаг за шагом</span></h2>
+</div>
+<div class="steps">
+<div class="step">
+<span class="num">01</span>
+<h3 class="d d-s" data-t="t27">Знакомство и экипировка</h3>
+<p data-t="t81">Оцениваем уровень, подбираем лыжи или сноуборд и настраиваем крепления под тебя.</p>
+</div>
+<div class="step">
+<span class="num">02</span>
+<h3 class="d d-s" data-t="t28">Баланс на ровном месте</h3>
+<p data-t="t82">Учимся стоять, скользить и тормозить там, где не страшно упасть.</p>
+</div>
+<div class="step">
+<span class="num">03</span>
+<h3 class="d d-s" data-t="t29">Первые спуски</h3>
+<p data-t="t83">Короткие, безопасные склоны. Инструктор рядом на каждом метре.</p>
+</div>
+<div class="step">
+<span class="num">04</span>
+<h3 class="d d-s" data-t="t30">Самостоятельный спуск</h3>
+<p data-t="t84">Закрепляем технику — и ты едешь сам, уверенно и без паники.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- GALLERY -->
+<section class="band">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t12">Атмосфера</p>
+<h2 class="d d-l" data-t="t31">Гудаури —<br/><span class="accent">реальные кадры</span><br/>со склона</h2>
+</div>
+<div class="gallery">
+<figure><img alt="Группа учеников Easy Ski на склоне Гудаури после занятия" src="img/g7.webp"/></figure>
+<figure><img alt="Юная ученица Easy Ski на склоне Гудаури" src="img/g2.webp"/></figure>
+<figure><img alt="Ученица Easy Ski с лыжами в посёлке Гудаури" src="img/g3.webp"/></figure>
+<figure><img alt="Инструктор Easy Ski на гребне над Гудаури" src="img/g6.webp"/></figure>
+<figure><img alt="Юный ученик Easy Ski на лыжах с горным псом" src="img/g5.webp"/></figure>
+</div>
+</div>
+</section>
+<!-- SKI OR SNOWBOARD -->
+<section class="band-tight">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t13">Выбор снаряда</p>
+<h2 class="d d-l" data-t="t32">Лыжи или сноуборд — <span class="accent">выбирайте</span></h2>
+</div>
+<div class="split">
+<div class="panel">
+<img alt="Ученица Easy Ski на горных лыжах на склоне Гудаури" src="img/snb3.webp"/>
+<div class="inner">
+<h3 class="d d-m" data-t="t33">Горные лыжи</h3>
+<p data-t="t85">Классический старт для тех, кто хочет быстро почувствовать контроль и скорость.</p>
+</div>
+</div>
+<div class="panel">
+<img alt="Сноубордистка Easy Ski поднимается по склону Гудаури с доской в руках" src="img/snb5.webp"/>
+<div class="inner">
+<h3 class="d d-m" data-t="t34">Сноуборд</h3>
+<p data-t="t86">Для тех, кому ближе свобода движения, плавные повороты и особое ощущение доски на снегу.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EXTRAS -->
+<section class="band extras" id="gudauri">
+<img alt="" src="img/mountains.webp"/>
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t14">Не только уроки</p>
+<h2 class="d d-l" data-t="t35">Гудаури — это<br/><span class="accent">больше, чем лыжи</span></h2>
+<p class="lede" data-t="t55">Мы поможем организовать не только обучение, но и лучшие зимние впечатления в горах.</p>
+</div>
+<div class="extras-grid">
+<div class="extra">
+<h3 class="d d-s" data-t="t36">Фрирайд с гидом</h3>
+<p data-t="t87">Подберём опытного гида для безопасного фрирайда и фрирайд-туров под ваш уровень.</p>
+</div>
+<div class="extra">
+<h3 class="d d-s" data-t="t37">Прокат экипировки</h3>
+<p data-t="t88">Подскажем проверенные прокаты в Гудаури и поможем подобрать качественное современное снаряжение без лишних поисков на месте.</p>
+</div>
+<div class="extra">
+<h3 class="d d-s" data-t="t38">Снегоходы</h3>
+<p data-t="t89">Не хочется сегодня на лыжи или сноуборд? Отправляйтесь исследовать горы на снегоходе.</p>
+</div>
+<div class="extra">
+<h3 class="d d-s" data-t="t39">Параглайдинг</h3>
+<p data-t="t90">Увидеть Кавказ с воздуха — организуем полёт на параплане над Гудаури.</p>
+</div>
+</div>
+<div class="btn-row">
+<a class="btn btn-ice" data-t="t164" data-t-mode="tail" href="https://wa.me/995591225289?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%D0%B2%20%D0%93%D1%83%D0%B4%D0%B0%D1%83%D1%80%D0%B8." rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg>Хочу подобрать активность</a>
+<a class="btn btn-tg" data-t="t165" data-t-mode="tail" href="https://t.me/kseniia_nazarova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%D0%B2%20%D0%93%D1%83%D0%B4%D0%B0%D1%83%D1%80%D0%B8." rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg>Telegram</a>
+</div>
+</div>
+</section>
+<!-- ADVANTAGES -->
+<section class="band" style="background:var(--ink-2);border-block:1px solid var(--line)">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t15">Наши преимущества</p>
+<h2 class="d d-l" data-t="t40">Почему выбирают<br/><span class="accent">Easy Ski</span></h2>
+</div>
+<div class="adv">
+<div class="adv-item">
+<span class="mark">01</span>
+<h3 class="d d-s" data-t="t41">Личный подход</h3>
+<p data-t="t91">Ты — не номер в расписании, а конкретный человек, о котором помнит инструктор.</p>
+</div>
+<div class="adv-item">
+<span class="mark">02</span>
+<h3 class="d d-s" data-t="t42">Прямая связь с основателями</h3>
+<p data-t="t92">Пишешь не в обезличенный колл-центр, а напрямую в WhatsApp или Telegram — и получаешь ответ от человека, который отвечает за качество.</p>
+</div>
+<div class="adv-item">
+<span class="mark">03</span>
+<h3 class="d d-s" data-t="t43">Гибкое расписание</h3>
+<p data-t="t93">Подстраиваемся под твой день в Гудаури, а не наоборот.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="band" id="faq">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t16">Вопросы</p>
+<h2 class="d d-l" data-t="t44">Частые<br/><span class="hollow">вопросы</span></h2>
+</div>
+<div class="faq">
+<details open="">
+<summary data-t="t94">Нужна ли своя экипировка?</summary>
+<p class="answer" data-t="t99">Нет. Можно взять лыжи, сноуборд, ботинки и шлем в прокате рядом — мы подскажем, где удобнее.</p>
+</details>
+<details>
+<summary data-t="t95">У меня вообще нет опыта — это нормально?</summary>
+<p class="answer" data-t="t100">Именно на таких людей и рассчитан формат «2 часа». Если ты никогда не стоял(а) на лыжах или сноуборде — это твой уровень.</p>
+</details>
+<details>
+<summary data-t="t96">Что если погода испортится?</summary>
+<p class="answer" data-t="t101">Переносим занятие на ближайшее удобное время без лишних вопросов — просто напиши нам в WhatsApp или Telegram.</p>
+</details>
+<details>
+<summary data-t="t97">Можно ли заниматься с детьми?</summary>
+<p class="answer" data-t="t102">Да, принимаем детей от 3 лет и подбираем формат под возраст — напиши нам возраст и уровень, предложим подходящую программу.</p>
+</details>
+<details>
+<summary data-t="t98">Можно заниматься вдвоём или компанией?</summary>
+<p class="answer" data-t="t103">Да — групповые и парные занятия возможны, напиши количество человек и уровень каждого.</p>
+</details>
+</div>
+</div>
+</section>
+<!-- FIRST TIME -->
+<section class="band-tight" style="background:var(--ink-2);border-block:1px solid var(--line)">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow" data-t="t17">Если вы здесь впервые</p>
+<h2 class="d d-l" data-t="t45">Впервые в Гудаури?<br/><span class="accent">Мы поможем разобраться</span></h2>
+</div>
+<div class="q-list">
+<div><em>01</em><b data-t="t104">Где взять хорошую экипировку?</b></div>
+<div><em>02</em><b data-t="t105">Какого инструктора выбрать?</b></div>
+<div><em>03</em><b data-t="t106">Где кататься новичку?</b></div>
+<div><em>04</em><b data-t="t107">Хотите попробовать фрирайд?</b></div>
+<div><em>05</em><b data-t="t108">Куда отправиться на снегоходах?</b></div>
+</div>
+<p class="note" data-t="t58">Напишите нам — подскажем и поможем организовать отдых в Гудаури.</p>
+<div class="btn-row" style="margin-top:24px">
+<a class="btn btn-ice" data-t="t166" data-t-mode="tail" href="https://wa.me/995591225289?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D0%B2%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5%20%D0%B2%20%D0%93%D1%83%D0%B4%D0%B0%D1%83%D1%80%D0%B8." rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg>WhatsApp</a>
+<a class="btn btn-tg" data-t="t167" data-t-mode="tail" href="https://t.me/kseniia_nazarova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D0%B2%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5%20%D0%B2%20%D0%93%D1%83%D0%B4%D0%B0%D1%83%D1%80%D0%B8." rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg>Telegram</a>
+</div>
+</div>
+</section>
+<!-- FINAL CTA -->
+<section class="band final">
+<img alt="" src="img/mountains-2.webp"/>
+<div class="wrap">
+<h2 class="d d-l" data-t="t46">Готов почувствовать<br/><span class="accent">первый уверенный</span><br/>спуск?</h2>
+<p data-t="t201">Напиши нам сейчас — ответим в течение нескольких минут и подберём время.</p>
+<div class="btn-row">
+<a class="btn btn-ice" data-t="t168" data-t-mode="tail" href="https://wa.me/995591225289?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg>Записаться на занятие</a>
+<a class="btn btn-tg" data-t="t169" data-t-mode="tail" href="https://t.me/kseniia_nazarova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg>Написать в Telegram</a>
+</div>
+<p class="legal-note" data-t="t114">Написав нам, вы передаёте свой контакт и данные, которые сообщите в переписке. Подробности — в <button class="linkbtn" data-doc="privacy">Политике конфиденциальности</button>.</p>
+</div>
+</section>
+</main>
+<footer class="site-foot">
+<div class="wrap">
+<div class="foot-grid">
+<div class="col" style="flex:1 1 220px">
+<a class="brand" data-t="t118" href="#top" style="margin-bottom:10px">
+<img alt="" src="img/mark-dark.png"/>
+<span data-t="t155">Easy Ski<br/>Gudauri</span>
+</a>
+<p data-t="t131" style="color:var(--mist-2);font-size:.9rem;margin:0 0 18px;max-width:30ch">Школа лыж и сноуборда в Гудаури. Обучение с нуля, дети от 3 лет.</p>
+<div class="socials">
+<a aria-label="Instagram" class="soc" data-t="t119" href="https://www.instagram.com/" rel="noopener" target="_blank"><svg><use href="#i-ig"></use></svg></a>
+<a aria-label="Facebook" class="soc" data-t="t120" href="https://www.facebook.com/" rel="noopener" target="_blank"><svg><use href="#i-fb"></use></svg></a>
+<a aria-label="Telegram" class="soc" data-t="t121" href="https://t.me/kseniia_nazarova" rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg></a>
+<a aria-label="WhatsApp" class="soc" data-t="t122" href="https://wa.me/995591225289" rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg></a>
+</div>
+</div>
+<div class="col">
+<h4 data-t="t115">Связь</h4>
+<a data-t="t123" href="https://wa.me/995591225289" rel="noopener" target="_blank">WhatsApp +995 591 225 289</a>
+<a data-t="t124" href="https://t.me/kseniia_nazarova" rel="noopener" target="_blank">Telegram @kseniia_nazarova</a>
+</div>
+<div class="col">
+<h4 data-t="t116">Разделы</h4>
+<a data-t="t125" href="#price">Стоимость</a>
+<a data-t="t126" href="#method">Метод</a>
+<a data-t="t127" href="#lesson">Формат урока</a>
+<a data-t="t128" href="#gudauri">Гудаури</a>
+<a data-t="t129" href="#faq">Вопросы</a>
+</div>
+<div class="col">
+<h4 data-t="t117">Документы</h4>
+<button class="linkbtn" data-doc="privacy" data-t="t202" style="text-align:left;color:var(--mist);font-size:.95rem;text-decoration:none">Политика конфиденциальности</button>
+<button class="linkbtn" data-doc="cookies" data-t="t203" style="text-align:left;color:var(--mist);font-size:.95rem;text-decoration:none">Политика cookie</button>
+</div>
+</div>
+<div class="foot-bar">
+<span data-t="t132">ИП Ксения Назарова · ID 141536050 · Грузия</span>
+</div>
+</div>
+</footer>
+<div class="dock" id="dock">
+<div class="wrap dock-in">
+<a class="btn btn-ice" data-t="d1" data-t-mode="tail" href="https://wa.me/995591225289?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-wa"></use></svg>WhatsApp</a>
+<a class="btn btn-tg" data-t="d2" data-t-mode="tail" href="https://t.me/kseniia_nazarova?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Easy%20Ski." rel="noopener" target="_blank"><svg><use href="#i-tg"></use></svg>Telegram</a>
+</div>
+</div>
+
+
+<!-- PRIVACY POLICY -->
+<dialog class="modal" id="doc-privacy">
+<div class="modal-inner doc"><button aria-label="Закрыть" class="modal-close" data-close="" type="button">×</button><div class="doc-body" data-t="t151">
+<h2 class="d d-m" data-t="t47">Политика конфиденциальности</h2>
+<p class="rev">Редакция от 17 сентября 2026 года</p>
+<p>Документ объясняет, какие персональные данные мы получаем, зачем, на каком основании и что вы можете с этим сделать. Обработка ведётся в соответствии с Законом Грузии «О защите персональных данных» (№ 3144, действует с 1 марта 2024 года).</p>
+<h3>1. Кто обрабатывает данные</h3>
+<dl class="kv">
+<dt>Контролёр данных</dt><dd>ИП Ксения Назарова (Individual Entrepreneur Ksenia Nazarova)</dd>
+<dt>Идентификационный номер</dt><dd>141536050</dd>
+<dt>Страна регистрации</dt><dd>Грузия</dd>
+<dt>Контакт по вопросам данных</dt><dd><a href="mailto:nazarova.k@gmail.com">nazarova.k@gmail.com</a></dd>
+</dl>
+<p>Отдельное должностное лицо по защите данных не назначается: наша деятельность не относится к категориям, для которых закон это требует.</p>
+<h3>2. Какие данные мы получаем</h3>
+<p><b>Сайт сам по себе данные не собирает.</b> На нём нет форм регистрации, личного кабинета, систем аналитики и рекламных пикселей.</p>
+<ul>
+<li><b>Когда вы пишете нам в WhatsApp или Telegram:</b> номер телефона либо имя пользователя, отображаемое имя и фото профиля (их показывает сам мессенджер), содержание переписки, а также то, что вы сообщаете добровольно — имя, возраст участников, уровень катания, желаемые даты.</li>
+<li><b>Технические данные при открытии сайта:</b> IP-адрес, тип устройства и браузера. Их фиксирует хостинг-провайдер в служебных журналах, а также сервис Google Fonts, с которого загружаются шрифты.</li>
+</ul>
+<p>Мы не запрашиваем документы, удостоверяющие личность, платёжные реквизиты и данные особой категории (здоровье, убеждения и подобное). Если вы сообщаете сведения о здоровье по своей инициативе — например, о травме или ограничении, важном для безопасности на склоне, — мы используем их только для проведения занятия.</p>
+<h3>3. Зачем нам эти данные</h3>
+<ul>
+<li>ответить на ваше обращение, подобрать инструктора, время и формат занятия;</li>
+<li>подготовить и провести занятие, согласовать перенос из-за погоды;</li>
+<li>помочь с сопутствующими услугами — прокатом, фрирайдом, снегоходами, параглайдингом, — если вы об этом просите;</li>
+<li>вести внутренний учёт записей и выполнять требования налогового и бухгалтерского законодательства Грузии.</li>
+</ul>
+<p>Мы не используем ваши контакты для рассылок и рекламы. Если когда-нибудь захотим — сначала спросим отдельное согласие, которое вы сможете отозвать в любой момент.</p>
+<h3>4. На каком основании мы обрабатываем данные</h3>
+<ul>
+<li><b>Ваше согласие</b> — вы сами инициируете переписку и сообщаете сведения о себе;</li>
+<li><b>исполнение договора или действия до его заключения</b> — организация и проведение занятия;</li>
+<li><b>исполнение обязанностей, установленных законом</b> — налоговый и бухгалтерский учёт;</li>
+<li><b>наш законный интерес</b> — вести расписание и подтверждать договорённости.</li>
+</ul>
+<h3>5. Кому мы передаём данные</h3>
+<ul>
+<li><b>Инструкторам</b>, которые проводят ваше занятие, — в объёме, необходимом для работы: имя, количество и возраст участников, уровень, время встречи.</li>
+<li><b>Партнёрам</b> — прокату, гиду, оператору снегоходов или параглайдинга, — только если вы просите организовать такую услугу и только в необходимом объёме.</li>
+<li><b>Операторам мессенджеров</b> — WhatsApp (Meta Platforms) и Telegram. Они обрабатывают переписку на своих серверах по собственным правилам и выступают самостоятельными контролёрами данных.</li>
+<li><b>Хостинг-провайдеру сайта</b> — в объёме служебных журналов.</li>
+</ul>
+<p>Мы не продаём персональные данные и не передаём их третьим лицам в рекламных целях.</p>
+<h3>6. Передача за пределы Грузии</h3>
+<p>Серверы WhatsApp, Telegram и Google расположены за пределами Грузии, поэтому переписка и технические данные обрабатываются за рубежом. Основания такой передачи — ваше согласие, выраженное выбором канала связи, и необходимость исполнения договора с вами. Выбор мессенджера остаётся за вами: если он вам не подходит, напишите на электронную почту.</p>
+<h3>7. Сколько мы храним данные</h3>
+<ul>
+<li>переписка в мессенджерах — до 12 месяцев с последнего обращения, затем удаляем;</li>
+<li>сведения о проведённых занятиях в бухгалтерском учёте — в сроки, установленные законодательством Грузии;</li>
+<li>служебные журналы хостинга — в сроки, установленные провайдером, как правило до нескольких месяцев.</li>
+</ul>
+<p>Если вы просите удалить данные раньше, мы удаляем всё, что не обязаны хранить по закону.</p>
+<h3>8. Ваши права</h3>
+<p>По Закону Грузии «О защите персональных данных» вы вправе:</p>
+<ul>
+<li>узнать, обрабатываем ли мы ваши данные, и получить их копию;</li>
+<li>узнать, какие данные, откуда, с какой целью и на каком основании обрабатываются и кому передавались;</li>
+<li>потребовать исправить, обновить или дополнить неточные данные;</li>
+<li>потребовать удалить данные или заблокировать их обработку;</li>
+<li>отозвать согласие в любой момент, без объяснения причин;</li>
+<li>подать жалобу в надзорный орган Грузии в сфере защиты персональных данных — с 2 марта 2026 года эти функции выполняет Служба государственного аудита Грузии — либо обратиться в суд.</li>
+</ul>
+<h3>9. Как воспользоваться правами</h3>
+<p>Напишите на <a href="mailto:nazarova.k@gmail.com">nazarova.k@gmail.com</a> или в тот мессенджер, где вы с нами общались. Мы отвечаем в сроки, установленные законом: по запросам об информации — как правило в течение 10 рабочих дней, а обработку по отозванному согласию прекращаем в течение 7 рабочих дней. Дополнительную плату за это мы не берём.</p>
+<h3>10. Дети</h3>
+<p>Мы проводим занятия для детей от 3 лет, но договариваемся всегда со взрослым. Данные ребёнка — имя, возраст, уровень — нам сообщает родитель или законный представитель, он же даёт согласие на их обработку. Самостоятельно у детей мы данные не запрашиваем.</p>
+<h3>11. Безопасность</h3>
+<p>Доступ к переписке есть только у владельца бизнеса и у инструктора, который проводит занятие. Устройства защищены паролем, мессенджеры используют сквозное шифрование. Данные, которые больше не нужны, мы удаляем.</p>
+<h3>12. Изменения</h3>
+<p>Если политика изменится, мы опубликуем новую редакцию на этой странице и обновим дату вверху документа.</p>
+</div></div>
+</dialog>
+<!-- COOKIE POLICY -->
+<dialog class="modal" id="doc-cookies">
+<div class="modal-inner doc"><button aria-label="Закрыть" class="modal-close" data-close="" type="button">×</button><div class="doc-body" data-t="t152">
+<h2 class="d d-m" data-t="t48">Политика cookie</h2>
+<p class="rev">Редакция от 19 сентября 2026 года</p>
+<p>Cookie и похожие технологии — это небольшие записи, которые сайт сохраняет в браузере или считывает из него. По законодательству Грузии такие идентификаторы могут считаться персональными данными, поэтому мы объясняем, что именно происходит на нашем сайте.</p>
+<h3>Мы не используем cookie</h3>
+<p>Сайт не устанавливает ни собственных, ни сторонних cookie. На нём нет Google Analytics, Яндекс.Метрики, рекламных пикселей Meta или TikTok, ретаргетинга и любых других систем слежения. Мы не строим ваш профиль и не показываем вам рекламу. Именно поэтому на сайте нет баннера с запросом согласия — согласовывать нечего.</p>
+<h3>Видео</h3>
+<p>Ролики со склона размещены на нашем собственном сервере и проигрываются встроенным плеером браузера. Внешние видеосервисы — YouTube, Vimeo и подобные — не используются, поэтому при просмотре никакие данные третьим лицам не передаются и никакие cookie не устанавливаются. Файл ролика загружается только после того, как вы нажмёте кнопку воспроизведения.</p>
+<h3>Выбор языка</h3>
+<p>Если вы переключаете язык сайта, ваш выбор сохраняется в локальном хранилище браузера, чтобы при следующем визите страница открылась на нём же. Эта запись не покидает ваше устройство, нам не передаётся и не является cookie. Она исчезает, когда вы очищаете данные браузера.</p>
+<h3>Шрифты</h3>
+<p>Начертания для сайта загружаются с сервиса Google Fonts. При открытии страницы браузер обращается к серверам Google и передаёт IP-адрес. Cookie при этом не устанавливаются. При желании мы можем разместить шрифты на собственном сервере — тогда обращения к Google не будет вовсе.</p>
+<h3>Журналы хостинга</h3>
+<p>Как и любой сайт, наш фиксируется в служебных журналах хостинг-провайдера: IP-адрес, время запроса, адрес страницы, тип браузера. Это нужно для работы и безопасности сайта.</p>
+<h3>Как проверить</h3>
+<p>Вы можете убедиться в этом сами: откройте инструменты разработчика браузера и посмотрите список cookie для этого домена — он будет пуст. Если мы когда-нибудь подключим аналитику, мы добавим баннер согласия и обновим этот документ.</p>
+</div></div>
+</dialog>
+<script id="i18n-data" type="application/json">{"en":{"t1":"Prices","t2":"Method","t3":"Lesson","t4":"Gudauri","t5":"FAQ","t6":"<svg><use href=\"#i-pin\"></use></svg>Gudauri, Georgia","t7":"Video","t8":"Prices","t9":"<svg style=\"width:13px;height:13px;vertical-align:-2px;fill:var(--ice);margin-right:6px\"><use href=\"#i-gift\"></use></svg>For every student","t10":"Method","t11":"Lesson format","t12":"Atmosphere","t13":"Pick your gear","t14":"More than lessons","t15":"Why us","t16":"Questions","t17":"First time here?","t18":"Learn to ride <span class=\"l2 accent\">in 2 hours</span> <span class=\"l3\">Skiing or snowboarding</span>","t19":"See what<br/><span class=\"accent\">our lessons</span><br/>look like","t20":"Two-hour<br/><span class=\"accent\">lessons</span>","t21":"Photo and video<br/><span class=\"accent\">as a gift</span>","t22":"What you will learn<br/><span class=\"hollow\">in your first</span><br/>lesson","t23":"Small groups","t24":"A clear sequence","t25":"A slope that fits your level","t26":"Your lesson,<br/><span class=\"accent\">step by step</span>","t27":"Meet &amp; gear up","t28":"Balance on flat ground","t29":"First runs","t30":"Skiing on your own","t31":"Real moments<br/><span class=\"accent\">from the slopes</span><br/>of Gudauri","t32":"Skis or snowboard — <span class=\"accent\">your call</span>","t33":"Skiing","t34":"Snowboarding","t35":"Gudauri is<br/><span class=\"accent\">more than just skiing</span>","t36":"Freeride with a guide","t37":"Gear rental","t38":"Snowmobiles","t39":"Paragliding","t40":"Why people choose<br/><span class=\"accent\">Easy Ski</span>","t41":"A personal approach","t42":"Direct line to the founders","t43":"Flexible scheduling","t44":"Frequently asked<br/><span class=\"hollow\">questions</span>","t45":"First time in Gudauri?<br/><span class=\"accent\">We’ll help you figure it out</span>","t46":"Ready for your<br/><span class=\"accent\">first confident</span><br/>run?","t47":"Privacy Policy","t48":"Cookie Policy","t49":"Company details","t50":"From zero to a confident first run — safely, clearly and at your own pace. Message us — we’ll match you with an instructor and a time.","t51":"Short clips from the slopes of Gudauri: a lesson with an adult, a child’s first runs and an evening ride at sunset.","t52":"The larger your group, the lower the cost per person.","t53":"Your instructor films you right through the lesson. Afterwards we cut a short vertical clip for Instagram and pick out the best shots — all that’s left for you is to post them.","t54":"Learn the basic stance, braking and speed control. Results depend on age, fitness and lesson format.","t55":"We’ll help you organize not just lessons, but the best winter experiences in the mountains.","t56":"One instructor takes no more than three people. If there are more of you, we’ll split you into groups or suggest another format — send us the ages, levels and group size and we’ll recommend the best one. Equipment and ski passes are not included. Prices in dollars are indicative at the current rate; payment is in lari.","t57":"How much material you get depends on the weather and the lesson format: on a clear day there’s more of it, in a blizzard we shoot less. Tagging us is optional, though we’ll be glad if you do.","t58":"Message us — we’ll help you figure it out and plan your time in Gudauri.","t59":"Private lesson","t60":"2 people","t61":"3 people","t62":"More than three","t63":"Your instructor’s full attention","t64":"Total lesson price","t65":"Total lesson price","t66":"Agreed individually — message us and we’ll suggest the format and the price","t67":"Message us","t68":"years teaching","t69":"years skiing","t70":"students taught","t71":"minimum student age","t72":"We film as the lesson goes","t73":"We cut a vertical clip","t74":"We send it to your messenger","t75":"No staged photo shoot and none of the time you paid for spent on it — we catch the moment while you ride.","t76":"A ready-made reel for Instagram: the cuts, the music and the right 9:16 format.","t77":"We send the clip and the photos to WhatsApp or Telegram after the lesson. The files are yours — post them wherever you like.","t78":"No more than 2–3 people per instructor, or fully one-on-one. Your instructor sees your specific mistake instead of running everyone through the same script.","t79":"Every drill sets up the next one: balance and stopping first, then turns, then your first real run. No long theory lectures in the cold.","t80":"We start where it’s calm and safe, and move on only when you’re actually ready — not because the schedule says so.","t81":"We check your level and fit your skis or board and bindings to you.","t82":"You learn to stand, glide and stop somewhere a fall doesn’t matter.","t83":"Short, safe slopes. Your instructor is right beside you the whole way.","t84":"We lock in the technique — and you ride down by yourself, confident and calm.","t85":"A classic start if you want to feel control and speed quickly.","t86":"For those drawn to freedom of movement, smooth turns and the particular feel of a board on snow.","t87":"We’ll match you with an experienced guide for safe freeride runs and tours suited to your level.","t88":"We’ll point you to trusted rental shops in Gudauri and help you find good, modern gear without the endless search on-site.","t89":"Not in the mood for skis or a board today? Go explore the mountains on a snowmobile instead.","t90":"See the Caucasus from above — we’ll set up a paragliding flight over Gudauri.","t91":"You’re not a slot in a schedule — you’re a person your instructor actually remembers.","t92":"You message WhatsApp or Telegram directly — not a faceless call center — and hear back from the person accountable for quality.","t93":"We work around your day in Gudauri, not the other way round.","t94":"Do I need my own gear?","t95":"I have zero experience — is that okay?","t96":"What if the weather turns bad?","t97":"Can kids take lessons too?","t98":"Can we book a lesson for a couple or a group?","t99":"No. You can rent skis, a board, boots and a helmet nearby — we’ll point you to the easiest spot.","t100":"That’s exactly who the 2-hour format is built for. If you’ve never stood on skis or a board before, that’s your starting point.","t101":"We move the lesson to the next convenient time, no hassle — just message us on WhatsApp or Telegram.","t102":"Yes — we take kids from age 3 and tailor the format to their age. Tell us their age and level and we’ll suggest the right program.","t103":"Yes — pair and group lessons are available. Tell us how many people and each person’s level.","t104":"Where can I get good gear?","t105":"Which instructor should I choose?","t106":"Where should a beginner ski?","t107":"Want to try freeride?","t108":"Where should I go snowmobiling?","t109":"Adults","t110":"Kids","t111":"Sunset","t112":"<svg class=\"ig\"><use href=\"#i-ig\"></use></svg>Photo and video — <b>free</b> <span class=\"emo\">🎁</span>","t115":"Contact","t116":"Sections","t117":"Documents","t125":"Prices","t126":"Method","t127":"Lesson format","t128":"Gudauri","t129":"FAQ","t131":"A ski and snowboard school in Gudauri. From your very first run, kids from age 3.","t132":"Individual Entrepreneur Ksenia Nazarova · ID 141536050 · Georgia","t135":"Reply within 5 minutes","t137":"Private &amp; group lessons","t139":"From zero experience","t141":"Kids from age 3","t143":"Reply within 5 minutes","t145":"Private &amp; group lessons","t147":"From zero experience","t149":"Kids from age 3","t156":"<span>Message</span>","t157":"<span>Message</span>","t158":"Message on WhatsApp","t159":"Message on Telegram","t160":"Ask on WhatsApp","t161":"Ask on Telegram","t162":"Book a lesson","t163":"Message on Telegram","t164":"Help me pick an activity","t165":"Telegram","t166":"WhatsApp","t167":"Telegram","t168":"Book a lesson","t169":"Message on Telegram","d1":"WhatsApp","d2":"Telegram","t113":"Tapping the button takes you to a messenger and passes us your contact. How we handle it is set out in our <button class=\"linkbtn\" data-doc=\"privacy\">Privacy Policy</button>.","t114":"When you write to us, you pass us your contact and whatever you tell us in the chat. The details are in our <button class=\"linkbtn\" data-doc=\"privacy\">Privacy Policy</button>.","t151":"<h2 class=\"d d-m\">Privacy Policy</h2>\n<p class=\"rev\">Version of 17 September 2026</p>\n<p>This document explains what personal data we receive, why, on what legal basis, and what you can do about it. Processing follows the Law of Georgia on Personal Data Protection (No. 3144, in force since 1 March 2024).</p>\n<h3>1. Who processes the data</h3>\n<dl class=\"kv\"><dt>Data controller</dt><dd>Individual Entrepreneur Ksenia Nazarova</dd><dt>Identification number</dt><dd>141536050</dd><dt>Country of registration</dt><dd>Georgia</dd><dt>Data contact</dt><dd><a href=\"mailto:nazarova.k@gmail.com\">nazarova.k@gmail.com</a></dd></dl>\n<p>We have not appointed a separate data protection officer: our activity does not fall into the categories for which the law requires one.</p>\n<h3>2. What data we receive</h3>\n<p><b>The site itself collects nothing.</b> There are no registration forms, no accounts, no analytics and no advertising pixels.</p>\n<ul><li><b>When you write to us on WhatsApp or Telegram:</b> your phone number or username, display name and profile photo (shown by the messenger itself), the content of the conversation, and whatever you tell us voluntarily — name, ages of participants, riding level, preferred dates.</li><li><b>Technical data when the page opens:</b> IP address, device and browser type. These are recorded in the hosting provider's server logs and by Google Fonts, from which the typefaces load.</li></ul>\n<p>We do not ask for identity documents, payment details or special category data (health, beliefs and the like). If you tell us something about your health on your own initiative — an injury or a limitation that matters for safety on the slope — we use it only to run the lesson.</p>\n<h3>3. Why we need it</h3>\n<ul><li>to answer you, pick an instructor, a time and a lesson format;</li><li>to prepare and run the lesson and to reschedule it when the weather turns;</li><li>to help with related services — rental, freeride, snowmobiles, paragliding — if you ask;</li><li>to keep internal records of bookings and to meet Georgian tax and accounting requirements.</li></ul>\n<p>We do not use your contacts for mailings or advertising. If we ever want to, we will ask for separate consent that you can withdraw at any time.</p>\n<h3>4. Legal basis</h3>\n<ul><li><b>Your consent</b> — you start the conversation and tell us about yourself;</li><li><b>performance of a contract or steps before it</b> — arranging and running the lesson;</li><li><b>compliance with legal obligations</b> — tax and accounting records;</li><li><b>our legitimate interest</b> — keeping a schedule and confirming arrangements.</li></ul>\n<h3>5. Who we share it with</h3>\n<ul><li><b>The instructors</b> running your lesson, to the extent they need: name, number and ages of participants, level, meeting time.</li><li><b>Partners</b> — a rental shop, guide, snowmobile or paragliding operator — only if you ask us to arrange such a service, and only to the extent needed.</li><li><b>Messenger operators</b> — WhatsApp (Meta Platforms) and Telegram. They process the conversation on their own servers under their own rules and act as independent controllers.</li><li><b>The site's hosting provider</b>, to the extent of the server logs.</li></ul>\n<p>We do not sell personal data and do not pass it to third parties for advertising.</p>\n<h3>6. Transfers outside Georgia</h3>\n<p>The servers of WhatsApp, Telegram and Google sit outside Georgia, so conversations and technical data are processed abroad. The basis for this is your consent, expressed by choosing the channel, and the necessity of performing the contract with you. The choice of messenger is yours: if it does not suit you, write to us by email instead.</p>\n<h3>7. How long we keep it</h3>\n<ul><li>messenger conversations — up to 12 months from the last contact, then deleted;</li><li>records of lessons in the accounts — for the periods set by Georgian law;</li><li>hosting server logs — for the period set by the provider, typically up to a few months.</li></ul>\n<p>If you ask us to delete your data sooner, we delete everything we are not obliged to keep.</p>\n<h3>8. Your rights</h3>\n<p>Under the Law of Georgia on Personal Data Protection you may:</p>\n<ul><li>find out whether we process your data and receive a copy of it;</li><li>learn what data we hold, where it came from, for what purpose and on what basis it is processed, and to whom it has been disclosed;</li><li>ask us to correct, update or complete inaccurate data;</li><li>ask us to delete your data or block its processing;</li><li>withdraw consent at any time without giving a reason;</li><li>complain to the Georgian supervisory authority for data protection — since 2 March 2026 this role is performed by the State Audit Office of Georgia — or go to court.</li></ul>\n<h3>9. How to exercise them</h3>\n<p>Write to <a href=\"mailto:nazarova.k@gmail.com\">nazarova.k@gmail.com</a> or to the messenger where we talked. We answer within the periods set by law: usually within 10 working days for information requests, and we stop processing based on withdrawn consent within 7 working days. There is no charge for this.</p>\n<h3>10. Children</h3>\n<p>We teach children from the age of 3, but we always deal with an adult. A parent or legal guardian gives us the child's name, age and level, and gives consent for processing. We never collect data from children directly.</p>\n<h3>11. Security</h3>\n<p>Only the owner of the business and the instructor running your lesson have access to the conversation. Devices are password protected and the messengers use end-to-end encryption. Data we no longer need is deleted.</p>\n<h3>12. Changes</h3>\n<p>If this policy changes we will publish the new version on this page and update the date at the top.</p>\n<p style=\"margin-top:22px;font-size:.84rem;color:var(--mist-2)\">This is a translation for convenience. In case of discrepancy the Russian version of this document prevails.</p>","t152":"<h2 class=\"d d-m\">Cookie Policy</h2>\n<p class=\"rev\">Version of 19 September 2026</p>\n<p>Cookies and similar technologies are small records a site saves in your browser or reads from it. Under Georgian law such identifiers may count as personal data, so we explain exactly what happens on our site.</p>\n<h3>We use no cookies</h3>\n<p>This site sets no cookies of its own and none from third parties. There is no Google Analytics, no Yandex Metrica, no Meta or TikTok advertising pixels, no retargeting and no other tracking. We do not build a profile of you and we show you no advertising. That is why there is no consent banner here — there is nothing to consent to.</p>\n<h3>Video</h3>\n<p>The clips from the slope are hosted on our own server and play in your browser's built-in player. No external video services — YouTube, Vimeo or similar — are used, so watching sends no data to third parties and sets no cookies. The video file loads only after you press play.</p>\n<h3>Language choice</h3>\n<p>If you switch the site language, your choice is saved in your browser's local storage so the page opens in the same language next time. That record never leaves your device, is never sent to us, and is not a cookie. It disappears when you clear your browser data.</p>\n<h3>Fonts</h3>\n<p>The typefaces load from Google Fonts. When the page opens, your browser contacts Google's servers and passes your IP address. No cookies are set in the process. On request we can host the fonts on our own server, after which there is no contact with Google at all.</p>\n<h3>Hosting logs</h3>\n<p>Like any website, ours is recorded in the hosting provider's server logs: IP address, time of request, page address, browser type. This is needed to run and protect the site.</p>\n<h3>Check for yourself</h3>\n<p>Open your browser's developer tools and look at the cookie list for this domain — it will be empty. If we ever add analytics, we will add a consent banner and update this document.</p>\n<p style=\"margin-top:22px;font-size:.84rem;color:var(--mist-2)\">This is a translation for convenience. In case of discrepancy the Russian version of this document prevails.</p>","t153":"<h2 class=\"d d-m\">Company details</h2>\n<p class=\"rev\">Service provider information</p>\n<dl class=\"kv\"><dt>Name</dt><dd>Individual Entrepreneur Ksenia Nazarova<br>ინდივიდუალური მეწარმე ქსენია ნაზაროვა</dd><dt>Legal form</dt><dd>Individual entrepreneur</dd><dt>Identification number</dt><dd>141536050</dd><dt>Registered on</dt><dd>23 June 2026</dd><dt>Registering authority</dt><dd>LEPL National Agency of Public Registry, Ministry of Justice of Georgia</dd><dt>Country</dt><dd>Georgia</dd><dt>Brand</dt><dd>Easy Ski Gudauri</dd><dt>Email</dt><dd><a href=\"mailto:nazarova.k@gmail.com\">nazarova.k@gmail.com</a></dd><dt>WhatsApp</dt><dd><a href=\"https://wa.me/995591225289\" target=\"_blank\" rel=\"noopener\">+995 591 225 289</a></dd><dt>Telegram</dt><dd><a href=\"https://t.me/kseniia_nazarova\" target=\"_blank\" rel=\"noopener\">@kseniia_nazarova</a></dd></dl>\n<p>The registration details can be verified in the public registry of Georgia: <a href=\"https://www.napr.gov.ge\" target=\"_blank\" rel=\"noopener\">napr.gov.ge</a>.</p>\n<p>Information on this site is for reference and is not a public offer. The price and terms of a lesson are confirmed in conversation before it begins.</p>","t201":"Message us now — we’ll reply within minutes and find a time that works.","t202":"Privacy Policy","t203":"Cookie Policy"},"ka":{"t1":"ფასები","t2":"მეთოდი","t3":"გაკვეთილი","t4":"გუდაური","t5":"კითხვები","t6":"<svg><use href=\"#i-pin\"></use></svg>გუდაური, საქართველო","t7":"ვიდეო","t8":"ფასები","t9":"<svg style=\"width:13px;height:13px;vertical-align:-2px;fill:var(--ice);margin-right:6px\"><use href=\"#i-gift\"></use></svg>ყველა მოსწავლეს","t10":"მეთოდი","t11":"გაკვეთილის ფორმატი","t12":"ატმოსფერო","t13":"აღჭურვილობის არჩევანი","t14":"მხოლოდ გაკვეთილები არა","t15":"ჩვენი უპირატესობები","t16":"კითხვები","t17":"თუ პირველად ხართ აქ","t18":"ვასწავლით სრიალს\n        <span class=\"l2 accent\">2 საათში</span>\n        <span class=\"l3\">თხილამურები ან სნოუბორდი</span>","t19":"ნახეთ,<br/><span class=\"accent\">როგორ მიმდინარეობს</span><br/>ჩვენი გაკვეთილები","t20":"გაკვეთილი<br/><span class=\"accent\">2 საათი</span>","t21":"ფოტო და ვიდეო<br/><span class=\"accent\">საჩუქრად</span>","t22":"რას ისწავლით<br/><span class=\"hollow\">პირველივე</span><br/>გაკვეთილზე","t23":"მცირე ჯგუფები","t24":"გასაგები თანმიმდევრობა","t25":"ფერდობი თქვენს დონეზე","t26":"თქვენი გაკვეთილი —<br/><span class=\"accent\">ნაბიჯ-ნაბიჯ</span>","t27":"გაცნობა და აღჭურვილობა","t28":"წონასწორობა ბრტყელ ადგილზე","t29":"პირველი დაშვებები","t30":"დამოუკიდებელი დაშვება","t31":"გუდაური —<br/><span class=\"accent\">რეალური კადრები</span><br/>ფერდობიდან","t32":"თხილამურები თუ სნოუბორდი — <span class=\"accent\">აირჩიეთ</span>","t33":"სამთო თხილამურები","t34":"სნოუბორდი","t35":"გუდაური<br/><span class=\"accent\">თხილამურებზე მეტია</span>","t36":"ფრირაიდი გიდთან","t37":"აღჭურვილობის ქირაობა","t38":"თოვლმავალი","t39":"პარაგლაიდინგი","t40":"რატომ ირჩევენ<br/><span class=\"accent\">Easy Ski</span>-ს","t41":"პირადი მიდგომა","t42":"პირდაპირი კავშირი დამფუძნებლებთან","t43":"მოქნილი განრიგი","t44":"ხშირი<br/><span class=\"hollow\">კითხვები</span>","t45":"პირველად გუდაურში?<br/><span class=\"accent\">დაგეხმარებით გარკვევაში</span>","t46":"მზად ხართ პირველი<br/><span class=\"accent\">თავდაჯერებული</span><br/>დაშვებისთვის?","t47":"კონფიდენციალურობის პოლიტიკა","t48":"Cookie-ს პოლიტიკა","t49":"რეკვიზიტები","t50":"ნულიდან თავდაჯერებულ დაშვებამდე — უსაფრთხოდ, გასაგებად და კომფორტული ტემპით. მოგვწერეთ და შეგირჩევთ ინსტრუქტორსა და დროს.","t51":"მოკლე ვიდეოები გუდაურის ფერდობიდან: გაკვეთილი მოზრდილთან, ბავშვის პირველი დაშვებები და საღამოს სრიალი მზის ჩასვლისას.","t52":"რაც უფრო დიდია კომპანია, მით უფრო ხელსაყრელია ფასი თითოეულისთვის.","t53":"ინსტრუქტორი გადაგიღებთ პირდაპირ გაკვეთილის დროს. შემდეგ ვამონტაჟებთ მოკლე ვერტიკალურ ვიდეოს Instagram-ისთვის და ვარჩევთ საუკეთესო კადრებს — თქვენ მხოლოდ გამოქვეყნება დაგრჩებათ.","t54":"ისწავლით საბაზისო პოზას, დამუხრუჭებასა და სიჩქარის კონტროლს. შედეგი დამოკიდებულია ასაკზე, ფიზიკურ მომზადებასა და არჩეულ ფორმატზე.","t55":"დაგეხმარებით არა მხოლოდ სწავლებაში, არამედ მთებში საუკეთესო ზამთრის შთაბეჭდილებების მოწყობაშიც.","t56":"ერთ ინსტრუქტორთან ჯგუფში სამ ადამიანზე მეტი არ არის. თუ მეტნი ხართ, რამდენიმე ჯგუფად დაგყოფთ ან სხვა ფორმატს შემოგთავაზებთ: მოგვწერეთ მონაწილეთა რაოდენობა, ასაკი და დონე. აღჭურვილობა და სკი-პასი ცალკე იხდება. ფასები დოლარში საორიენტაციოა მიმდინარე კურსით, ანგარიშსწორება ლარში.","t57":"რამდენი კადრი გამოვა, დამოკიდებულია ამინდსა და გაკვეთილის ფორმატზე: მზიან დღეს მასალა მეტია, ქარბუქში ნაკლები. ჩვენი მონიშვნა სავალდებულო არ არის, თუმცა სასიამოვნო იქნება.","t58":"მოგვწერეთ — გირჩევთ და დაგეხმარებით გუდაურში დასვენების მოწყობაში.","t59":"ინდივიდუალური","t60":"2 ადამიანი","t61":"3 ადამიანი","t62":"სამზე მეტი","t63":"ინსტრუქტორის სრული ყურადღება","t64":"გაკვეთილის საერთო ღირებულება","t65":"გაკვეთილის საერთო ღირებულება","t66":"განიხილება ინდივიდუალურად — მოგვწერეთ და შეგირჩევთ ფორმატსა და ფასს","t67":"მოგვწერეთ","t68":"წელი სწავლების","t69":"წელი თხილამურებზე","t70":"მოსწავლე","t71":"მოსწავლეთა ასაკი","t72":"ვიღებთ გაკვეთილის მსვლელობისას","t73":"ვამონტაჟებთ ვერტიკალურ ვიდეოს","t74":"გიგზავნით მესენჯერში","t75":"ფოტოსესიას არ ვმართავთ და თქვენს ანაზღაურებულ დროს არ ვხარჯავთ — მომენტს ვიჭერთ, სანამ თქვენ სრიალებთ.","t76":"მზა რილსი Instagram-ისთვის: მონტაჟი, მუსიკა, სწორი 9:16 ფორმატი.","t77":"ვიდეოსა და ფოტოებს გიგზავნით WhatsApp-ში ან Telegram-ში გაკვეთილის შემდეგ. ფაილები თქვენია — გამოაქვეყნეთ სადაც გინდათ.","t78":"ერთ ინსტრუქტორზე 2–3 ადამიანზე მეტი არა — ან სრულიად ინდივიდუალურად. ინსტრუქტორი ხედავს ზუსტად თქვენს შეცდომას და ყველას ერთ პროგრამაზე არ ასწორებს.","t79":"ყოველი სავარჯიშო ამზადებს შემდეგისთვის: ჯერ წონასწორობა და დამუხრუჭება, შემდეგ მოხვევები, შემდეგ პირველი დაშვება. ზედმეტი თეორიის გარეშე სიცივეში.","t80":"ვიწყებთ იქ, სადაც უსაფრთხო და მშვიდია, და შემდეგ მხოლოდ მაშინ გადავდივართ, როცა ნამდვილად მზად ხართ — და არა იმიტომ, რომ „ასეა განრიგში“.","t81":"ვაფასებთ დონეს, ვარჩევთ თხილამურებს ან სნოუბორდს და სამაგრებს თქვენზე ვაწყობთ.","t82":"ვსწავლობთ დგომას, სრიალსა და დამუხრუჭებას იქ, სადაც წაქცევა საშიში არ არის.","t83":"მოკლე, უსაფრთხო ფერდობები. ინსტრუქტორი ყოველ მეტრზე გვერდითაა.","t84":"ვამაგრებთ ტექნიკას — და თქვენ თავად სრიალებთ, თავდაჯერებულად და პანიკის გარეშე.","t85":"კლასიკური დასაწყისი მათთვის, ვისაც სწრაფად სურს კონტროლისა და სიჩქარის შეგრძნება.","t86":"მათთვის, ვისაც უფრო ახლოსაა მოძრაობის თავისუფლება, რბილი მოხვევები და დაფის განსაკუთრებული შეგრძნება თოვლზე.","t87":"შეგირჩევთ გამოცდილ გიდს უსაფრთხო ფრირაიდისა და ფრირაიდ-ტურებისთვის თქვენს დონეზე.","t88":"გირჩევთ სანდო საქირაო პუნქტებს გუდაურში და დაგეხმარებით ხარისხიანი თანამედროვე აღჭურვილობის შერჩევაში ზედმეტი ძიების გარეშე.","t89":"დღეს თხილამურები ან სნოუბორდი არ გინდათ? წადით მთების შესასწავლად თოვლმავალით.","t90":"იხილეთ კავკასია ჰაერიდან — მოვაწყობთ პარაპლანით ფრენას გუდაურის თავზე.","t91":"თქვენ არ ხართ ნომერი განრიგში, არამედ კონკრეტული ადამიანი, რომელიც ინსტრუქტორს ახსოვს.","t92":"წერთ არა უსახურ ქოლ-ცენტრს, არამედ პირდაპირ WhatsApp-ში ან Telegram-ში — და პასუხს იღებთ იმ ადამიანისგან, ვინც ხარისხზეა პასუხისმგებელი.","t93":"ვეწყობით თქვენს დღეს გუდაურში და არა პირიქით.","t94":"საკუთარი აღჭურვილობა საჭიროა?","t95":"გამოცდილება საერთოდ არ მაქვს — ეს ნორმალურია?","t96":"რა მოხდება, თუ ამინდი გაფუჭდება?","t97":"შესაძლებელია ბავშვებთან გაკვეთილი?","t98":"შეიძლება ორმა ან კომპანიამ ერთად ივარჯიშოს?","t99":"არა. თხილამურები, სნოუბორდი, ფეხსაცმელი და ჩაფხუტი შეგიძლიათ აიღოთ ახლომდებარე საქირაოში — გირჩევთ, სად არის უფრო მოსახერხებელი.","t100":"სწორედ ასეთ ადამიანებზეა გათვლილი ფორმატი „2 საათი“. თუ არასდროს დამდგარხართ თხილამურებზე ან დაფაზე — ეს თქვენი დონეა.","t101":"გაკვეთილს გადავიტანთ უახლოეს მოსახერხებელ დროზე ზედმეტი კითხვების გარეშე — უბრალოდ მოგვწერეთ WhatsApp-ში ან Telegram-ში.","t102":"დიახ, ვიღებთ ბავშვებს 3 წლიდან და ფორმატს ასაკის მიხედვით ვარჩევთ — მოგვწერეთ ასაკი და დონე, შემოგთავაზებთ შესაფერის პროგრამას.","t103":"დიახ — ჯგუფური და წყვილური გაკვეთილები შესაძლებელია, მოგვწერეთ ადამიანების რაოდენობა და თითოეულის დონე.","t104":"სად ვიშოვო კარგი აღჭურვილობა?","t105":"რომელი ინსტრუქტორი ავირჩიო?","t106":"სად ისრიალოს დამწყებმა?","t107":"გსურთ ფრირაიდის ცდა?","t108":"სად წავიდე თოვლმავალით?","t109":"მოზრდილები","t110":"ბავშვები","t111":"მზის ჩასვლა","t112":"<svg class=\"ig\"><use href=\"#i-ig\"></use></svg>ფოტო და ვიდეოგადაღება — <b>საჩუქრად</b> <span class=\"emo\">🎁</span>","t113":"ღილაკზე დაჭერით გადადიხართ მესენჯერში და გვიზიარებთ თქვენს კონტაქტს. როგორ ვეპყრობით მას — <button class=\"linkbtn\" data-doc=\"privacy\">კონფიდენციალურობის პოლიტიკაში</button>.","t114":"როცა გვწერთ, გვიზიარებთ კონტაქტსა და იმ მონაცემებს, რასაც მიმოწერაში მოგვაწვდით. დეტალები — <button class=\"linkbtn\" data-doc=\"privacy\">კონფიდენციალურობის პოლიტიკაში</button>.","t115":"კონტაქტი","t116":"განყოფილებები","t117":"დოკუმენტები","t125":"ფასები","t126":"მეთოდი","t127":"გაკვეთილის ფორმატი","t128":"გუდაური","t129":"კითხვები","t131":"თხილამურებისა და სნოუბორდის სკოლა გუდაურში. სწავლება ნულიდან, ბავშვები 3 წლიდან.","t132":"ინდ. მეწარმე ქსენია ნაზაროვა · ID 141536050 · საქართველო","t135":"ვპასუხობთ 5 წუთში","t137":"ინდივიდუალურად და ჯგუფებში","t139":"სწავლება ნულიდან","t141":"ბავშვები 3 წლიდან","t143":"ვპასუხობთ 5 წუთში","t145":"ინდივიდუალურად და ჯგუფებში","t147":"სწავლება ნულიდან","t149":"ბავშვები 3 წლიდან","t156":"<span>მოგვწერეთ</span>","t157":"<span>მოგვწერეთ</span>","t158":"მოგვწერეთ WhatsApp-ში","t159":"მოგვწერეთ Telegram-ში","t160":"იკითხეთ WhatsApp-ში","t161":"იკითხეთ Telegram-ში","t162":"გაკვეთილზე ჩაწერა","t163":"მოგვწერეთ Telegram-ში","t164":"მინდა აქტივობის შერჩევა","t165":"Telegram","t166":"WhatsApp","t167":"Telegram","t168":"გაკვეთილზე ჩაწერა","t169":"მოგვწერეთ Telegram-ში","d1":"WhatsApp","d2":"Telegram","t151":"<h2 class=\"d d-m\">კონფიდენციალურობის პოლიტიკა</h2>\n<p class=\"rev\">რედაქცია 2026 წლის 17 სექტემბრისა</p>\n<p>ეს დოკუმენტი განმარტავს, რომელ პერსონალურ მონაცემებს ვიღებთ, რისთვის, რა საფუძვლით და რა შეგიძლიათ ამასთან დაკავშირებით. დამუშავება მიმდინარეობს საქართველოს კანონის „პერსონალურ მონაცემთა დაცვის შესახებ“ (№3144, ძალაშია 2024 წლის 1 მარტიდან) შესაბამისად.</p>\n<h3>1. ვინ ამუშავებს მონაცემებს</h3>\n<dl class=\"kv\"><dt>მონაცემთა კონტროლერი</dt><dd>ინდივიდუალური მეწარმე ქსენია ნაზაროვა</dd><dt>საიდენტიფიკაციო ნომერი</dt><dd>141536050</dd><dt>რეგისტრაციის ქვეყანა</dt><dd>საქართველო</dd><dt>საკონტაქტო მისამართი</dt><dd><a href=\"mailto:nazarova.k@gmail.com\">nazarova.k@gmail.com</a></dd></dl>\n<p>ცალკე მონაცემთა დაცვის ოფიცერი არ დაგვინიშნავს: ჩვენი საქმიანობა არ მიეკუთვნება იმ კატეგორიებს, რომლებისთვისაც კანონი ამას ითხოვს.</p>\n<h3>2. რა მონაცემებს ვიღებთ</h3>\n<p><b>თავად საიტი მონაცემებს არ აგროვებს.</b> მასზე არ არის სარეგისტრაციო ფორმები, პირადი კაბინეტი, ანალიტიკის სისტემები და სარეკლამო პიქსელები.</p>\n<ul><li><b>როცა გვწერთ WhatsApp-ში ან Telegram-ში:</b> ტელეფონის ნომერი ან მომხმარებლის სახელი, საჩვენებელი სახელი და პროფილის ფოტო (მათ თავად მესენჯერი აჩვენებს), მიმოწერის შინაარსი, აგრეთვე ის, რასაც ნებაყოფლობით გვამცნობთ — სახელი, მონაწილეთა ასაკი, სრიალის დონე, სასურველი თარიღები.</li><li><b>ტექნიკური მონაცემები საიტის გახსნისას:</b> IP-მისამართი, მოწყობილობისა და ბრაუზერის ტიპი. მათ იწერს ჰოსტინგ-პროვაიდერი სამსახურებრივ ჟურნალებში, აგრეთვე Google Fonts, საიდანაც იტვირთება შრიფტები.</li></ul>\n<p>არ ვითხოვთ პირადობის დამადასტურებელ დოკუმენტებს, საგადახდო რეკვიზიტებსა და განსაკუთრებული კატეგორიის მონაცემებს (ჯანმრთელობა, რწმენა და მისთანანი). თუ ჯანმრთელობის შესახებ თავად შეგვატყობინებთ — მაგალითად, ტრავმის ან ფერდობზე უსაფრთხოებისთვის მნიშვნელოვანი შეზღუდვის შესახებ — ამას მხოლოდ გაკვეთილის ჩასატარებლად ვიყენებთ.</p>\n<h3>3. რისთვის გვჭირდება</h3>\n<ul><li>თქვენს მიმართვაზე პასუხისთვის, ინსტრუქტორის, დროისა და ფორმატის შესარჩევად;</li><li>გაკვეთილის მოსამზადებლად და ჩასატარებლად, ამინდის გამო გადატანის შესათანხმებლად;</li><li>თანმხლებ სერვისებში დასახმარებლად — ქირაობა, ფრირაიდი, თოვლმავალი, პარაგლაიდინგი — თუ ამას ითხოვთ;</li><li>ჩანაწერების შიდა აღრიცხვისა და საქართველოს საგადასახადო და საბუღალტრო კანონმდებლობის მოთხოვნების შესასრულებლად.</li></ul>\n<p>თქვენს კონტაქტებს დაგზავნისა და რეკლამისთვის არ ვიყენებთ. თუ ოდესმე მოვინდომებთ, ჯერ ცალკე თანხმობას გკითხავთ, რომლის გამოხმობაც ნებისმიერ დროს შეგეძლებათ.</p>\n<h3>4. რა საფუძვლით ვამუშავებთ</h3>\n<ul><li><b>თქვენი თანხმობა</b> — თქვენ თავად იწყებთ მიმოწერას და გვამცნობთ ინფორმაციას თქვენს შესახებ;</li><li><b>ხელშეკრულების შესრულება ან მის დადებამდე მოქმედებები</b> — გაკვეთილის ორგანიზება და ჩატარება;</li><li><b>კანონით დადგენილი ვალდებულებების შესრულება</b> — საგადასახადო და საბუღალტრო აღრიცხვა;</li><li><b>ჩვენი ლეგიტიმური ინტერესი</b> — განრიგის წარმოება და შეთანხმებების დადასტურება.</li></ul>\n<h3>5. ვის გადავცემთ მონაცემებს</h3>\n<ul><li><b>ინსტრუქტორებს</b>, რომლებიც ატარებენ თქვენს გაკვეთილს — სამუშაოდ საჭირო მოცულობით: სახელი, მონაწილეთა რაოდენობა და ასაკი, დონე, შეხვედრის დრო.</li><li><b>პარტნიორებს</b> — საქირაოს, გიდს, თოვლმავალის ან პარაგლაიდინგის ოპერატორს — მხოლოდ მაშინ, თუ ასეთი მომსახურების ორგანიზებას ითხოვთ და მხოლოდ საჭირო მოცულობით.</li><li><b>მესენჯერების ოპერატორებს</b> — WhatsApp (Meta Platforms) და Telegram. ისინი მიმოწერას ამუშავებენ საკუთარ სერვერებზე საკუთარი წესებით და გამოდიან დამოუკიდებელ კონტროლერებად.</li><li><b>საიტის ჰოსტინგ-პროვაიდერს</b> — სამსახურებრივი ჟურნალების მოცულობით.</li></ul>\n<p>პერსონალურ მონაცემებს არ ვყიდით და სარეკლამო მიზნით მესამე პირებს არ გადავცემთ.</p>\n<h3>6. გადაცემა საქართველოს ფარგლებს გარეთ</h3>\n<p>WhatsApp-ის, Telegram-ისა და Google-ის სერვერები საქართველოს ფარგლებს გარეთაა, ამიტომ მიმოწერა და ტექნიკური მონაცემები მუშავდება საზღვარგარეთ. ასეთი გადაცემის საფუძველია თქვენი თანხმობა, გამოხატული კავშირის არხის არჩევით, და თქვენთან ხელშეკრულების შესრულების აუცილებლობა. მესენჯერის არჩევანი თქვენზეა: თუ ის არ გერგებათ, მოგვწერეთ ელფოსტაზე.</p>\n<h3>7. რამდენ ხანს ვინახავთ</h3>\n<ul><li>მიმოწერა მესენჯერებში — ბოლო მიმართვიდან 12 თვემდე, შემდეგ ვშლით;</li><li>ჩატარებული გაკვეთილების მონაცემები საბუღალტრო აღრიცხვაში — საქართველოს კანონმდებლობით დადგენილი ვადით;</li><li>ჰოსტინგის სამსახურებრივი ჟურნალები — პროვაიდერის დადგენილი ვადით, როგორც წესი რამდენიმე თვემდე.</li></ul>\n<p>თუ მოითხოვთ მონაცემების უფრო ადრე წაშლას, წავშლით ყველაფერს, რისი შენახვაც კანონით არ გვევალება.</p>\n<h3>8. თქვენი უფლებები</h3>\n<p>საქართველოს კანონის „პერსონალურ მონაცემთა დაცვის შესახებ“ თანახმად, თქვენ უფლება გაქვთ:</p>\n<ul><li>გაიგოთ, ვამუშავებთ თუ არა თქვენს მონაცემებს, და მიიღოთ მათი ასლი;</li><li>გაიგოთ, რომელი მონაცემები, საიდან, რა მიზნითა და რა საფუძვლით მუშავდება და ვის გადაეცა;</li><li>მოითხოვოთ არაზუსტი მონაცემების გასწორება, განახლება ან შევსება;</li><li>მოითხოვოთ მონაცემების წაშლა ან დამუშავების ბლოკირება;</li><li>ნებისმიერ დროს გამოიხმოთ თანხმობა მიზეზის ახსნის გარეშე;</li><li>საჩივრით მიმართოთ საქართველოს ზედამხედველ ორგანოს მონაცემთა დაცვის სფეროში — 2026 წლის 2 მარტიდან ამ ფუნქციას ასრულებს საქართველოს სახელმწიფო აუდიტის სამსახური — ან სასამართლოს.</li></ul>\n<h3>9. როგორ ისარგებლოთ უფლებებით</h3>\n<p>მოგვწერეთ <a href=\"mailto:nazarova.k@gmail.com\">nazarova.k@gmail.com</a> ან იმ მესენჯერში, სადაც გვესაუბრეთ. ვპასუხობთ კანონით დადგენილ ვადებში: ინფორმაციის მოთხოვნაზე, როგორც წესი, 10 სამუშაო დღეში, ხოლო გამოხმობილ თანხმობაზე დამუშავებას ვწყვეტთ 7 სამუშაო დღეში. დამატებით საფასურს ამისთვის არ ვიღებთ.</p>\n<h3>10. ბავშვები</h3>\n<p>გაკვეთილებს ვატარებთ 3 წლიდან, მაგრამ ყოველთვის მოზრდილთან ვთანხმდებით. ბავშვის მონაცემებს — სახელს, ასაკს, დონეს — გვაწვდის მშობელი ან კანონიერი წარმომადგენელი, ისვე იძლევა თანხმობას მათ დამუშავებაზე. ბავშვებისგან მონაცემებს დამოუკიდებლად არ ვითხოვთ.</p>\n<h3>11. უსაფრთხოება</h3>\n<p>მიმოწერაზე წვდომა აქვს მხოლოდ ბიზნესის მფლობელსა და იმ ინსტრუქტორს, რომელიც ატარებს გაკვეთილს. მოწყობილობები დაცულია პაროლით, მესენჯერები იყენებენ ბოლოდან-ბოლომდე დაშიფვრას. მონაცემებს, რომლებიც აღარ გვჭირდება, ვშლით.</p>\n<h3>12. ცვლილებები</h3>\n<p>თუ პოლიტიკა შეიცვლება, ახალ რედაქციას გამოვაქვეყნებთ ამ გვერდზე და განვაახლებთ თარიღს დოკუმენტის თავში.</p>\n<p style=\"margin-top:22px;font-size:.84rem;color:var(--mist-2)\">ეს თარგმანი მოხერხებულობისთვისაა. შეუსაბამობის შემთხვევაში უპირატესობა ენიჭება დოკუმენტის რუსულ ვერსიას.</p>","t152":"<h2 class=\"d d-m\">Cookie-ს პოლიტიკა</h2>\n<p class=\"rev\">რედაქცია 2026 წლის 19 სექტემბრისა</p>\n<p>Cookie და მსგავსი ტექნოლოგიები არის მცირე ჩანაწერები, რომლებსაც საიტი ინახავს ბრაუზერში ან კითხულობს მისგან. საქართველოს კანონმდებლობით ასეთი იდენტიფიკატორები შეიძლება ჩაითვალოს პერსონალურ მონაცემებად, ამიტომ განვმარტავთ, რა ხდება ზუსტად ჩვენს საიტზე.</p>\n<h3>cookie-ს არ ვიყენებთ</h3>\n<p>საიტი არ ათავსებს არც საკუთარ და არც მესამე მხარის cookie-ს. აქ არ არის Google Analytics, Yandex Metrica, Meta-ს ან TikTok-ის სარეკლამო პიქსელები, რეტარგეტინგი და თვალთვალის სხვა სისტემები. თქვენს პროფილს არ ვაგებთ და რეკლამას არ გაჩვენებთ. სწორედ ამიტომ საიტზე არ არის თანხმობის ბანერი — შესათანხმებელი არაფერია.</p>\n<h3>ვიდეო</h3>\n<p>ფერდობიდან გადაღებული ვიდეოები განთავსებულია ჩვენს საკუთარ სერვერზე და ითამაშება ბრაუზერის ჩაშენებული ფლეერით. გარე ვიდეოსერვისები — YouTube, Vimeo და მისთანანი — არ გამოიყენება, ამიტომ ყურებისას მესამე პირებს მონაცემები არ გადაეცემა და cookie არ იდება. ვიდეოს ფაილი იტვირთება მხოლოდ დაკვრის ღილაკზე დაჭერის შემდეგ.</p>\n<h3>ენის არჩევანი</h3>\n<p>თუ საიტის ენას გადართავთ, თქვენი არჩევანი შეინახება ბრაუზერის ლოკალურ საცავში, რომ შემდეგ ვიზიტზე გვერდი იმავე ენაზე გაიხსნას. ეს ჩანაწერი არ ტოვებს თქვენს მოწყობილობას, ჩვენამდე არ აღწევს და cookie არ არის. ის ქრება ბრაუზერის მონაცემების გასუფთავებისას.</p>\n<h3>შრიფტები</h3>\n<p>საიტის შრიფტები იტვირთება სერვის Google Fonts-იდან. გვერდის გახსნისას ბრაუზერი მიმართავს Google-ის სერვერებს და გადასცემს IP-მისამართს. cookie ამ დროს არ იდება. სურვილისამებრ შრიფტები შეგვიძლია განვათავსოთ საკუთარ სერვერზე — მაშინ Google-თან მიმართვა აღარ იქნება.</p>\n<h3>ჰოსტინგის ჟურნალები</h3>\n<p>როგორც ნებისმიერი საიტი, ჩვენიც აღირიცხება ჰოსტინგ-პროვაიდერის სამსახურებრივ ჟურნალებში: IP-მისამართი, მოთხოვნის დრო, გვერდის მისამართი, ბრაუზერის ტიპი. ეს საჭიროა საიტის მუშაობისა და უსაფრთხოებისთვის.</p>\n<h3>თავად შეამოწმეთ</h3>\n<p>გახსენით ბრაუზერის დეველოპერის ხელსაწყოები და ნახეთ ამ დომენის cookie-ების სია — ის ცარიელი იქნება. თუ ოდესმე ანალიტიკას დავამატებთ, დავამატებთ თანხმობის ბანერსაც და განვაახლებთ ამ დოკუმენტს.</p>\n<p style=\"margin-top:22px;font-size:.84rem;color:var(--mist-2)\">ეს თარგმანი მოხერხებულობისთვისაა. შეუსაბამობის შემთხვევაში უპირატესობა ენიჭება დოკუმენტის რუსულ ვერსიას.</p>","t153":"<h2 class=\"d d-m\">რეკვიზიტები</h2>\n<p class=\"rev\">ინფორმაცია მომსახურების მიმწოდებელზე</p>\n<dl class=\"kv\"><dt>დასახელება</dt><dd>ინდივიდუალური მეწარმე ქსენია ნაზაროვა<br>Individual Entrepreneur Ksenia Nazarova</dd><dt>სამართლებრივი ფორმა</dt><dd>ინდივიდუალური მეწარმე</dd><dt>საიდენტიფიკაციო ნომერი</dt><dd>141536050</dd><dt>რეგისტრაციის თარიღი</dt><dd>2026 წლის 23 ივნისი</dd><dt>მარეგისტრირებელი ორგანო</dt><dd>სსიპ „საჯარო რეესტრის ეროვნული სააგენტო“, საქართველოს იუსტიციის სამინისტრო</dd><dt>ქვეყანა</dt><dd>საქართველო</dd><dt>ბრენდი</dt><dd>Easy Ski Gudauri</dd><dt>ელფოსტა</dt><dd><a href=\"mailto:nazarova.k@gmail.com\">nazarova.k@gmail.com</a></dd><dt>WhatsApp</dt><dd><a href=\"https://wa.me/995591225289\" target=\"_blank\" rel=\"noopener\">+995 591 225 289</a></dd><dt>Telegram</dt><dd><a href=\"https://t.me/kseniia_nazarova\" target=\"_blank\" rel=\"noopener\">@kseniia_nazarova</a></dd></dl>\n<p>სარეგისტრაციო მონაცემების გადამოწმება შესაძლებელია საქართველოს საჯარო რეესტრში: <a href=\"https://www.napr.gov.ge\" target=\"_blank\" rel=\"noopener\">napr.gov.ge</a>.</p>\n<p>საიტზე განთავსებული ინფორმაცია საცნობაროა და არ წარმოადგენს საჯარო ოფერტს. გაკვეთილის ღირებულება და პირობები დასტურდება მიმოწერაში მის დაწყებამდე.</p>","t201":"მოგვწერეთ ახლავე — რამდენიმე წუთში გიპასუხებთ და შეგირჩევთ დროს.","t202":"კონფიდენციალურობის პოლიტიკა","t203":"Cookie-ს პოლიტიკა"}}</script>
+<script>
+(function(){
+  var LKEY = 'esg_lang';
+
+  /* ---------- language ---------- */
+  var DICT = {};
+  try { DICT = JSON.parse(document.getElementById('i18n-data').textContent); } catch(e){}
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-t]'));
+  var ORIG = new Map();
+  nodes.forEach(function(el){ ORIG.set(el, el.innerHTML); });
+
+  function setLang(code){
+    var dict = code === 'ru' ? null : DICT[code];
+    if(code !== 'ru' && !dict) code = 'ru';
+    nodes.forEach(function(el){
+      var key = el.getAttribute('data-t');
+      var val = code === 'ru' ? ORIG.get(el) : dict[key];
+      if(val == null) val = ORIG.get(el);
+      if(el.getAttribute('data-t-mode') === 'tail'){
+        var svg = el.querySelector('svg');
+        var head = svg ? svg.outerHTML : '';
+        el.innerHTML = head + (code === 'ru' ? stripSvg(ORIG.get(el)) : val);
+      } else {
+        el.innerHTML = val;
+      }
+    });
+    document.documentElement.lang = code;
+    Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function(btn){
+      btn.classList.toggle('on', btn.getAttribute('data-lang') === code);
+    });
+    try { localStorage.setItem(LKEY, code); } catch(e){}
+  }
+  function stripSvg(html){ return html.replace(/<svg[\s\S]*?<\/svg>/i, ''); }
+
+  document.addEventListener('click', function(e){
+    var lb = e.target.closest('.lang button');
+    if(lb){ setLang(lb.getAttribute('data-lang')); return; }
+    var opener = e.target.closest('[data-doc]');
+    if(opener){
+      e.preventDefault();
+      var d = document.getElementById('doc-' + opener.getAttribute('data-doc'));
+      if(d){ d.showModal ? d.showModal() : d.setAttribute('open',''); }
+      return;
+    }
+    var closer = e.target.closest('[data-close]');
+    if(closer){
+      var dlg = closer.closest('dialog');
+      if(dlg){ dlg.close ? dlg.close() : dlg.removeAttribute('open'); }
+    }
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('dialog.modal'), function(d){
+    d.addEventListener('click', function(e){ if(e.target === d) d.close(); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem(LKEY); } catch(e){}
+  if(saved && saved !== 'ru') setLang(saved);
+
+  /* ---------- sticky dock ---------- */
+  var dock = document.getElementById('dock');
+  var hero = document.querySelector('.hero');
+  function syncDock(){
+    if(!dock) return;
+    var trigger = hero ? hero.offsetHeight - 120 : 420;
+    var show = window.scrollY > trigger;
+    dock.classList.toggle('show', show);
+    document.body.classList.toggle('has-dock', show);
+  }
+  window.addEventListener('scroll', syncDock, {passive:true});
+  window.addEventListener('resize', syncDock);
+  syncDock();
+
+  /* ---------- shorts: self-hosted video ---------- */
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.short'));
+  function stopOthers(except){
+    cards.forEach(function(c){
+      if(c === except) return;
+      var v = c.querySelector('video');
+      if(v && !v.paused) v.pause();
+    });
+  }
+  cards.forEach(function(card){
+    var video = card.querySelector('video');
+    var face  = card.querySelector('.short-face');
+    if(!video || !face) return;
+    face.addEventListener('click', function(){
+      stopOthers(card);
+      video.controls = true;
+      card.classList.add('playing');
+      face.hidden = true;
+      var p = video.play();
+      if(p && p.catch) p.catch(function(){ face.hidden = false; card.classList.remove('playing'); });
+    });
+    video.addEventListener('play', function(){ stopOthers(card); });
+    video.addEventListener('ended', function(){
+      card.classList.remove('playing');
+      video.controls = false;
+      face.hidden = false;
+      video.load();
+    });
+  });
+
+  /* ---------- rail arrows ---------- */
+  var rail = document.getElementById('shorts');
+  var prev = document.getElementById('railPrev');
+  var next = document.getElementById('railNext');
+  if(rail && prev && next){
+    function step(){
+      var card = rail.querySelector('.short');
+      var gap = parseFloat(getComputedStyle(rail).gap) || 16;
+      return card ? card.getBoundingClientRect().width + gap : 300;
+    }
+    function sync(){
+      var max = rail.scrollWidth - rail.clientWidth - 2;
+      prev.disabled = rail.scrollLeft <= 2;
+      next.disabled = rail.scrollLeft >= max;
+      var nav = rail.parentNode.querySelector('.rail-nav');
+      if(nav) nav.style.display = max <= 2 ? 'none' : 'flex';
+    }
+    prev.addEventListener('click', function(){ rail.scrollBy({left:-step(), behavior:'smooth'}); });
+    next.addEventListener('click', function(){ rail.scrollBy({left: step(), behavior:'smooth'}); });
+    rail.addEventListener('scroll', sync, {passive:true});
+    window.addEventListener('resize', sync);
+    sync();
+  }
+})();
+</script>
