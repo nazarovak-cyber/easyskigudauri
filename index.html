@@ -82,7 +82,7 @@ a{color:inherit}
 .d-xl{font-size:clamp(2.9rem,10.5vw,8.2rem)}
 .hero h1.d-xl{font-size:clamp(2.55rem,6.1vw,5.5rem)}
 @media (max-width:1023px){.hero h1.d-xl{font-size:clamp(2.6rem,11vw,4.6rem)}}
-@media (max-width:600px){.hero h1.d-xl{font-size:clamp(1.95rem,8.2vw,3.2rem)}}
+@media (max-width:600px){.hero h1.d-xl{font-size:clamp(2.05rem,8.8vw,3.4rem)}}
 @media (max-width:360px){:root[lang="ka"] .hero h1.d-xl{font-size:6.6vw}}
 .d-l{font-size:clamp(2.2rem,6.6vw,5rem)}
 .d-m{font-size:clamp(1.65rem,4vw,3.1rem)}
@@ -911,33 +911,33 @@ html{scroll-behavior:smooth}
   }
   .hero .wrap{
     flex:1 1 auto;display:flex;flex-direction:column;
-    padding-block:22px 22px;
+    padding-block:20px 20px;
   }
-  .hero h1,.hero .lede{max-width:62%}
-  .hero h1{margin-top:auto;margin-bottom:14px}
+  .hero h1{max-width:66%}
+  .hero h1{order:2;margin-top:auto;margin-bottom:13px}
   .hero .lede{
-    margin-bottom:auto;font-size:.8rem;line-height:1.45;color:#DEE9F0;max-width:73%;
+    display:contents;
+    font-size:.84rem;line-height:1.45;color:#DEE9F0;
     text-shadow:0 2px 14px rgba(7,10,14,.95),0 1px 3px rgba(7,10,14,.85);
   }
-  .hero .lede .s1,.hero .lede .s2{display:block}
-  .hero .lede .s2{margin-top:6px}
-  :root[lang="ka"] .hero .lede{font-size:.72rem}
-  .hero .gift-badge{align-self:flex-start;margin:22px 0 14px;padding:10px 15px;max-width:none}
-  .hero .btn-row{gap:10px;width:72%;max-width:300px;align-self:flex-start}
+  .hero .lede .s1{order:3;display:block;max-width:78%;margin:0 0 auto}
+  .hero .lede .s2{order:5;display:block;max-width:78%;margin:0 0 11px}
+  :root[lang="ka"] .hero .lede{font-size:.74rem}
+  .hero .gift-badge{order:4;align-self:flex-start;margin:auto 0 13px;padding:10px 15px;max-width:none}
+  .hero .btn-row{order:6;gap:10px;width:74%;max-width:310px;align-self:flex-start}
   .hero .btn{padding:15px 16px;font-size:.86rem}
-  .hero .legal-note{margin-top:12px;font-size:.7rem;line-height:1.35}
-  .hero .eyebrow.place{align-self:flex-start;margin-bottom:0;font-size:.72rem;letter-spacing:.04em;padding:7px 13px;gap:6px}
+  .hero .legal-note{order:7;margin-top:11px;font-size:.7rem;line-height:1.35}
+  .hero .eyebrow.place{order:1;align-self:flex-start;margin-bottom:0;font-size:.72rem;letter-spacing:.04em;padding:7px 13px;gap:6px}
   .hero .eyebrow.place svg{width:12px;height:12px}
 }
 @media (max-width:374px){
-  .hero .lede{font-size:.7rem}
-  .hero h1 .l3{font-size:4.3vw}
+  .hero .lede{font-size:.74rem}
+  .hero h1 .l3{font-size:4.6vw}
 }
 @media (max-width:600px) and (max-height:620px){
   .hero{min-height:560px}
-  .hero h1{margin-top:18px}
-  .hero .lede{margin-bottom:16px}
-  .hero .gift-badge{margin-top:0}
+  .hero h1{margin-top:12px}
+  .hero .lede .s1{margin-bottom:16px}
 }
 
 /* ---------- «Лыжи или сноуборд» всегда в одну строку ---------- */
@@ -948,9 +948,9 @@ html{scroll-behavior:smooth}
   :root[lang="ka"] .hero h1 .l3{font-size:2.1vw}
 }
 @media (max-width:600px){
-  .hero h1 .l3{font-size:4.15vw;font-weight:700;letter-spacing:.035em}
-  :root[lang="en"] .hero h1 .l3{font-size:3.7vw}
-  :root[lang="ka"] .hero h1 .l3{font-size:3.75vw}
+  .hero h1 .l3{font-size:4.45vw;font-weight:700;letter-spacing:.035em}
+  :root[lang="en"] .hero h1 .l3{font-size:3.95vw}
+  :root[lang="ka"] .hero h1 .l3{font-size:4vw}
 }
 </style>
 </head>
