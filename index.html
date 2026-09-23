@@ -311,6 +311,8 @@ body.has-dock{padding-bottom:84px}
 }
 .hero h1 .l3{display:block;font-size:.46em;letter-spacing:-.01em;padding-left:0;margin-top:.22em}
 .hero .lede{margin-bottom:28px;color:#C3D4DE}
+.hero .lede .s1{display:block}
+.hero .lede .s2{display:block;white-space:nowrap;margin-top:.35em}
 .hero-badges{
   display:flex;flex-wrap:wrap;gap:8px;
   margin-top:30px;
@@ -920,10 +922,12 @@ html{scroll-behavior:smooth}
     font-size:.84rem;line-height:1.45;color:#DEE9F0;
     text-shadow:0 2px 14px rgba(7,10,14,.95),0 1px 3px rgba(7,10,14,.85);
   }
-  .hero .lede .s1{order:3;display:block;max-width:78%;margin:0 0 auto}
-  .hero .lede .s2{order:5;display:block;max-width:78%;margin:0 0 11px}
+  .hero .lede .s1{order:3;display:block;max-width:78%;margin:0 0 14px}
+  .hero .lede .s2{order:5;display:block;max-width:none;margin:auto 0 11px;white-space:nowrap;font-size:3.4vw}
+  :root[lang="en"] .hero .lede .s2{font-size:2.85vw}
+  :root[lang="ka"] .hero .lede .s2{font-size:2.9vw}
   :root[lang="ka"] .hero .lede{font-size:.74rem}
-  .hero .gift-badge{order:4;align-self:flex-start;margin:auto 0 13px;padding:10px 15px;max-width:none}
+  .hero .gift-badge{order:4;align-self:flex-start;margin:0 0 auto;padding:10px 15px;max-width:none}
   .hero .btn-row{order:6;gap:10px;width:74%;max-width:310px;align-self:flex-start}
   .hero .btn{padding:15px 16px;font-size:.86rem}
   .hero .legal-note{order:7;margin-top:11px;font-size:.7rem;line-height:1.35}
@@ -937,7 +941,49 @@ html{scroll-behavior:smooth}
 @media (max-width:600px) and (max-height:620px){
   .hero{min-height:560px}
   .hero h1{margin-top:12px}
-  .hero .lede .s1{margin-bottom:16px}
+  .hero .lede .s1{margin-bottom:12px}
+}
+
+/* ---------- кнопки: отклик на нажатие ---------- */
+.btn,.lang button,.linkbtn,.rail-btn,.gift-stack figure,.faq summary,summary{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+.btn{position:relative;overflow:hidden;will-change:transform}
+.btn:active{transform:translateY(1px) scale(.968)}
+.btn-ice:active{background:var(--wa-2)}
+.btn-tg:active{background:var(--tg-2)}
+.btn-dark:active{background:#10385F}
+.btn-ghost:active{border-color:var(--ice);color:var(--ice)}
+.lang button{transition:transform .14s ease,background .18s,color .18s}
+.lang button:active{transform:scale(.92)}
+.linkbtn{transition:opacity .15s ease,color .18s}
+.linkbtn:active{opacity:.6}
+.gift-stack figure:active{filter:brightness(.96)}
+summary{transition:opacity .15s ease}
+summary:active{opacity:.7}
+.btn:focus-visible,.lang button:focus-visible,.linkbtn:focus-visible{
+  outline:3px solid var(--ice);outline-offset:3px;
+}
+
+/* блик по кнопкам — подсказка, что на них можно нажать */
+.btn-ice::after,.btn-tg::after,.btn-dark::after{
+  content:"";position:absolute;top:0;left:-150%;width:55%;height:100%;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-18deg);pointer-events:none;
+  animation:btnShine 5.5s cubic-bezier(.4,0,.2,1) infinite;
+}
+.btn-tg::after{background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 100%)}
+.btn-dark::after{animation-delay:.8s}
+.btn-tg::after{animation-delay:.4s}
+@keyframes btnShine{
+  0%{left:-150%}
+  16%{left:160%}
+  100%{left:160%}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn-ice::after,.btn-tg::after,.btn-dark::after{animation:none;opacity:0}
+  .btn:active{transform:none}
 }
 
 /* ---------- «Лыжи или сноуборд» всегда в одну строку ---------- */
