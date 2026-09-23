@@ -396,14 +396,7 @@ body.has-dock{padding-bottom:84px}
   transition:transform .2s ease,background .2s;
 }
 .short-face:hover .short-play{transform:scale(1.08);background:var(--wa-2)}
-.short-stop{
-  position:absolute;top:12px;right:12px;z-index:4;display:none;
-  width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.35);
-  background:rgba(8,26,45,.72);backdrop-filter:blur(6px);color:#fff;cursor:pointer;
-  font:700 18px/1 var(--f-body);padding:0;
-}
-.short.playing .short-stop{display:block}
-.short-stop:hover{background:rgba(8,26,45,.9)}
+.short.playing .short-face{display:none;pointer-events:none}
 .short-play::before{
   content:"";width:0;height:0;margin-left:5px;
   border-left:19px solid var(--wa-ink);
@@ -1072,7 +1065,6 @@ summary:active{opacity:.7}
 <span class="short-mid"><span class="short-play"></span></span>
 <span class="short-cap" data-t="t109">Взрослые</span>
 </button>
-<button aria-label="Остановить видео" class="short-stop" type="button">×</button>
 </article>
 <article class="short" id="sh02">
 <video class="short-vid" playsinline="" poster="img/v2-poster.webp" preload="none" src="vid/v2.mp4" title="Ребёнок учится спускаться на лыжах"></video>
@@ -1081,7 +1073,6 @@ summary:active{opacity:.7}
 <span class="short-mid"><span class="short-play"></span></span>
 <span class="short-cap" data-t="t110">Дети</span>
 </button>
-<button aria-label="Остановить видео" class="short-stop" type="button">×</button>
 </article>
 <article class="short" id="sh03">
 <video class="short-vid" playsinline="" poster="img/v3-poster.webp" preload="none" src="vid/v3.mp4" title="Спуск по склону над Гудаури"></video>
@@ -1090,7 +1081,6 @@ summary:active{opacity:.7}
 <span class="short-mid"><span class="short-play"></span></span>
 <span class="short-cap" data-t="t111">Гудаури</span>
 </button>
-<button aria-label="Остановить видео" class="short-stop" type="button">×</button>
 </article>
 </div>
 <div class="rail-nav">
@@ -1621,25 +1611,26 @@ summary:active{opacity:.7}
   var cards = Array.prototype.slice.call(document.querySelectorAll('.short'));
   function closeCard(card){
     var v = card.querySelector('video');
-    if(v){ v.pause(); try{ v.currentTime = 0; }catch(e){} v.removeAttribute('controls'); }
+    if(v){
+      try{ v.pause(); }catch(e){}
+      try{ v.currentTime = 0; }catch(e){}
+      v.removeAttribute('controls');
+      v.load();
+    }
     card.classList.remove('playing');
-    var f = card.querySelector('.short-face');
-    if(f) f.hidden = false;
   }
   cards.forEach(function(card){
     var face = card.querySelector('.short-face');
-    var stop = card.querySelector('.short-stop');
     var v    = card.querySelector('video');
     if(!face || !v) return;
-    face.addEventListener('click', function(){
+    face.addEventListener('click', function(e){
+      e.preventDefault();
       cards.forEach(function(c){ if(c !== card) closeCard(c); });
-      v.setAttribute('controls','');
       card.classList.add('playing');
-      face.hidden = true;
+      v.setAttribute('controls','');
       var pr = v.play();
-      if(pr && pr.catch) pr.catch(function(){});
+      if(pr && pr.catch) pr.catch(function(){ card.classList.remove('playing'); v.removeAttribute('controls'); });
     });
-    if(stop) stop.addEventListener('click', function(e){ e.stopPropagation(); closeCard(card); });
     v.addEventListener('ended', function(){ closeCard(card); });
   });
 
