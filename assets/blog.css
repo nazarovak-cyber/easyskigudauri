@@ -64,6 +64,10 @@
   text-transform:uppercase;color:var(--mist);border-bottom:1.5px solid var(--line-2);
 }
 .prose tbody tr:nth-child(odd){background:rgba(234,244,251,.55)}
+.post-photo{margin:1.6em 0 1.9em}
+.post-photo img{width:100%;height:auto;border-radius:4px;background:var(--ink-2);display:block}
+.post-photo.is-tall{max-width:420px;margin-inline:auto}
+.post-photo figcaption{margin-top:10px;font-size:.88rem;line-height:1.45;color:var(--mist);text-align:center}
 .post-video{margin:1.4em auto 1.8em;max-width:340px}
 .post-video video{width:100%;height:auto;aspect-ratio:9/16;border-radius:6px;background:var(--ink-deep);display:block}
 .post-video figcaption{margin-top:10px;font-size:.88rem;color:var(--mist);text-align:center}
