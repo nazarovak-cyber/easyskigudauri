@@ -1,16 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://easyskigudauri.ge/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/pogoda-gudauri/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/ski-pass-gudauri/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/gudauri-dlya-novichkov/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/gudauri-s-detmi/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/prokat-gudauri/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/kak-dobratsya-gudauri/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/lyzhi-ili-snowboard/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/chto-vzyat-na-sklon/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/skolko-stoit-den-v-gudauri/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/gudauri-ili-bakuriani/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://easyskigudauri.ge/blog/freeride-gudauri/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://easyskigudauri.ge/blog/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/pogoda-gudauri/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/pogoda-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/pogoda-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/pogoda-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/pogoda-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/pogoda-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/pogoda-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/pogoda-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/pogoda-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/pogoda-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/pogoda-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/pogoda-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/ski-pass-gudauri/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/ski-pass-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/ski-pass-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/ski-pass-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/ski-pass-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/ski-pass-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/ski-pass-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/ski-pass-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/ski-pass-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/ski-pass-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/ski-pass-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/ski-pass-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/gudauri-dlya-novichkov/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-dlya-novichkov/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-dlya-novichkov"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-dlya-novichkov"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/gudauri-dlya-novichkov</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-dlya-novichkov/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-dlya-novichkov"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-dlya-novichkov"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/gudauri-dlya-novichkov</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-dlya-novichkov/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-dlya-novichkov"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-dlya-novichkov"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/gudauri-s-detmi/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-s-detmi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-s-detmi"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-s-detmi"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/gudauri-s-detmi</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-s-detmi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-s-detmi"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-s-detmi"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/gudauri-s-detmi</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-s-detmi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-s-detmi"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-s-detmi"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/prokat-gudauri/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/prokat-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/prokat-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/prokat-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/prokat-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/prokat-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/prokat-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/prokat-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/prokat-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/prokat-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/prokat-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/prokat-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/kak-dobratsya-gudauri/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/kak-dobratsya-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/kak-dobratsya-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/kak-dobratsya-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/kak-dobratsya-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/kak-dobratsya-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/kak-dobratsya-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/kak-dobratsya-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/kak-dobratsya-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/kak-dobratsya-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/kak-dobratsya-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/kak-dobratsya-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/lyzhi-ili-snowboard/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/lyzhi-ili-snowboard/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/lyzhi-ili-snowboard"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/lyzhi-ili-snowboard"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/lyzhi-ili-snowboard</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/lyzhi-ili-snowboard/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/lyzhi-ili-snowboard"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/lyzhi-ili-snowboard"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/lyzhi-ili-snowboard</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/lyzhi-ili-snowboard/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/lyzhi-ili-snowboard"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/lyzhi-ili-snowboard"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/chto-vzyat-na-sklon/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/chto-vzyat-na-sklon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/chto-vzyat-na-sklon"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/chto-vzyat-na-sklon"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/chto-vzyat-na-sklon</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/chto-vzyat-na-sklon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/chto-vzyat-na-sklon"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/chto-vzyat-na-sklon"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/chto-vzyat-na-sklon</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/chto-vzyat-na-sklon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/chto-vzyat-na-sklon"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/chto-vzyat-na-sklon"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/skolko-stoit-den-v-gudauri/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/skolko-stoit-den-v-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/skolko-stoit-den-v-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/skolko-stoit-den-v-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/skolko-stoit-den-v-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/skolko-stoit-den-v-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/skolko-stoit-den-v-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/skolko-stoit-den-v-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/skolko-stoit-den-v-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/skolko-stoit-den-v-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/skolko-stoit-den-v-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/skolko-stoit-den-v-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/gudauri-ili-bakuriani/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-ili-bakuriani/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-ili-bakuriani"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-ili-bakuriani"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/gudauri-ili-bakuriani</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-ili-bakuriani/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-ili-bakuriani"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-ili-bakuriani"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/gudauri-ili-bakuriani</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/gudauri-ili-bakuriani/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/gudauri-ili-bakuriani"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/gudauri-ili-bakuriani"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/blog/freeride-gudauri/</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/freeride-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/freeride-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/freeride-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/en/blog/freeride-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/freeride-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/freeride-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/freeride-gudauri"/>
+  </url>
+  <url><loc>https://easyskigudauri.ge/ka/blog/freeride-gudauri</loc><lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://easyskigudauri.ge/blog/freeride-gudauri/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easyskigudauri.ge/en/blog/freeride-gudauri"/>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://easyskigudauri.ge/ka/blog/freeride-gudauri"/>
+  </url>
 </urlset>

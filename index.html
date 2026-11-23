@@ -1003,10 +1003,13 @@ summary:active{opacity:.7}
   :root[lang="ka"] .hero h1 .l3{font-size:4vw}
 }
 
-/* ---------- гид по Гудаури (только RU) ---------- */
-:root:not([lang="ru"]) .ru-only{display:none!important}
+/* ---------- гид по Гудаури: показываем версию текущего языка ---------- */
+:root:not([lang="ru"]) [data-l="ru"],
+:root:not([lang="en"]) [data-l="en"],
+:root:not([lang="ka"]) [data-l="ka"]{display:none!important}
 .guide-sec{background:var(--paper)}
 .guide-all{margin:clamp(24px,3vw,36px) 0 0}
+:root[lang="ka"] .g-card-title,:root[lang="ka"] .g-card-more{font-style:normal;text-transform:none;letter-spacing:-.01em}
 /* ---------- карточки статей ---------- */
 .g-grid{display:grid;gap:clamp(16px,2vw,24px)}
 .g-grid-3{grid-template-columns:repeat(3,1fr)}
@@ -1023,7 +1026,7 @@ summary:active{opacity:.7}
 .g-card-body{display:flex;flex-direction:column;gap:10px;padding:18px 20px 22px;flex:1}
 .g-card-title{
   margin:0;font-family:var(--f-display);font-weight:900;font-style:italic;text-transform:uppercase;
-  letter-spacing:-.02em;line-height:1.05;font-size:1.12rem;color:var(--snow);
+  letter-spacing:-.02em;line-height:1.14;font-size:1.12rem;color:var(--snow);
 }
 .g-card-text{color:var(--mist);font-size:.93rem;line-height:1.5}
 .g-card-more{
@@ -1056,7 +1059,9 @@ summary:active{opacity:.7}
 <a data-t="t2" href="#method">Метод</a>
 <a data-t="t3" href="#lesson">Урок</a>
 <a data-t="t4" href="#gudauri">Гудаури</a>
-<a class="ru-only" href="/blog/">Гид по Гудаури</a>
+<a data-l="ru" href="/blog/">Гид по Гудаури</a>
+<a data-l="en" href="/en/blog/">Gudauri Guide</a>
+<a data-l="ka" href="/ka/blog/">გზამკვლევი</a>
 <a data-t="t5" href="#faq">Вопросы</a>
 </nav>
 <div class="socials head-socials">
@@ -1104,7 +1109,6 @@ summary:active{opacity:.7}
 <section class="band">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t7">Видео</p>
 <h2 class="d d-l" data-t="t19">Посмотрите,<br/><span class="accent">как проходят</span><br/>наши уроки</h2>
 <p class="lede" data-t="t51">Короткие ролики со склона Гудаури.</p>
 </div>
@@ -1113,7 +1117,6 @@ summary:active{opacity:.7}
 <article class="short" id="sh01">
 <video class="short-vid" playsinline="" poster="img/v3-poster.webp" preload="none" src="vid/v3.mp4" title="Спуск по склону над Гудаури"></video>
 <button aria-label="Смотреть: Гудаури" class="short-face" type="button">
-<span class="short-idx">01</span>
 <span class="short-mid"><span class="short-play"></span></span>
 <span class="short-cap" data-t="t111">Гудаури</span>
 </button>
@@ -1121,7 +1124,6 @@ summary:active{opacity:.7}
 <article class="short" id="sh02">
 <video class="short-vid" playsinline="" poster="img/v2-poster.webp" preload="none" src="vid/v2.mp4" title="Ребёнок учится спускаться на лыжах"></video>
 <button aria-label="Смотреть: Дети" class="short-face" type="button">
-<span class="short-idx">02</span>
 <span class="short-mid"><span class="short-play"></span></span>
 <span class="short-cap" data-t="t110">Дети</span>
 </button>
@@ -1129,7 +1131,6 @@ summary:active{opacity:.7}
 <article class="short" id="sh03">
 <video class="short-vid" playsinline="" poster="img/v1-poster.webp" preload="none" src="vid/v1.mp4" title="Занятие со взрослым учеником на склоне Гудаури"></video>
 <button aria-label="Смотреть: Взрослые" class="short-face" type="button">
-<span class="short-idx">03</span>
 <span class="short-mid"><span class="short-play"></span></span>
 <span class="short-cap" data-t="t109">Взрослые</span>
 </button>
@@ -1137,7 +1138,6 @@ summary:active{opacity:.7}
 <article class="short" id="sh04">
 <video class="short-vid" playsinline="" poster="img/v4-poster.webp" preload="none" src="vid/v4.mp4" title="Свободный спуск по трассе Гудаури"></video>
 <button aria-label="Смотреть: Свободный спуск" class="short-face" type="button">
-<span class="short-idx">04</span>
 <span class="short-mid"><span class="short-play"></span></span>
 <span class="short-cap" data-t="t207">Свободный спуск</span>
 </button>
@@ -1154,7 +1154,6 @@ summary:active{opacity:.7}
 <section class="band" id="price" style="background:var(--ink-2);border-block:1px solid var(--line)">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t8">Стоимость</p>
 <h2 class="d d-l" data-t="t20">Занятия<br/><span class="accent">2 часа</span></h2>
 <p class="lede" data-t="t52">Чем больше ваша компания, тем выгоднее стоимость для каждого участника.</p>
 </div>
@@ -1206,26 +1205,22 @@ summary:active{opacity:.7}
 <div class="wrap">
 <div class="gift-grid">
 <div>
-<p class="eyebrow" data-t="t9"><svg style="width:13px;height:13px;vertical-align:-2px;fill:var(--ice);margin-right:6px"><use href="#i-gift"></use></svg>Каждому ученику</p>
 <h2 class="d d-l" data-t="t21">Фото и видеосъёмка<br/><span class="accent">в подарок</span></h2>
 <p class="lede" data-t="t53" style="margin-top:22px">Инструктор снимает вас прямо во время занятия: фото и видео со склона. После урока присылаем все материалы в мессенджер — выкладывайте где хотите.</p>
 <div class="gift-list">
 <div class="gift-item">
-<span class="n">01</span>
 <div>
 <h3 data-t="t72">Снимаем по ходу урока</h3>
 <p data-t="t75">Не устраиваем фотосессию и не тратим ваше оплаченное время — ловим момент, пока вы катаетесь.</p>
 </div>
 </div>
 <div class="gift-item">
-<span class="n">02</span>
 <div>
 <h3 data-t="t73">Фото и видео со склона</h3>
 <p data-t="t76">Спуски, эмоции и виды Гудаури — кадры, которые сразу можно выложить.</p>
 </div>
 </div>
 <div class="gift-item">
-<span class="n">03</span>
 <div>
 <h3 data-t="t74">Отдаём в мессенджер</h3>
 <p data-t="t77">Присылаем фотографии и видео в WhatsApp или Telegram после занятия. Файлы ваши — публикуйте где хотите.</p>
@@ -1250,7 +1245,6 @@ summary:active{opacity:.7}
 <section class="band" id="method">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t10">Метод</p>
 <h2 class="d d-l" data-t="t22">Что вы освоите<br/><span class="hollow">за первое</span><br/>занятие</h2>
 <p class="lede" data-t="t54">Освоите базовую стойку, торможение и контроль скорости. Результат зависит от возраста, физической подготовки и выбранного формата.</p>
 </div>
@@ -1276,27 +1270,22 @@ summary:active{opacity:.7}
 <section class="band" id="lesson" style="background:var(--ink-2);border-block:1px solid var(--line)">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t11">Формат урока</p>
 <h2 class="d d-l" data-t="t26">Ваш урок —<br/><span class="accent">шаг за шагом</span></h2>
 </div>
 <div class="steps">
 <div class="step">
-<span class="num">01</span>
 <h3 class="d d-s" data-t="t27">Знакомство и экипировка</h3>
 <p data-t="t81">Оцениваем уровень, подбираем лыжи или сноуборд и настраиваем крепления под тебя.</p>
 </div>
 <div class="step">
-<span class="num">02</span>
 <h3 class="d d-s" data-t="t28">Баланс на ровном месте</h3>
 <p data-t="t82">Учимся стоять, скользить и тормозить там, где не страшно упасть.</p>
 </div>
 <div class="step">
-<span class="num">03</span>
 <h3 class="d d-s" data-t="t29">Первые спуски</h3>
 <p data-t="t83">Короткие, безопасные склоны. Инструктор рядом на каждом метре.</p>
 </div>
 <div class="step">
-<span class="num">04</span>
 <h3 class="d d-s" data-t="t30">Самостоятельный спуск</h3>
 <p data-t="t84">Закрепляем технику — и ты едешь сам, уверенно и без паники.</p>
 </div>
@@ -1307,7 +1296,6 @@ summary:active{opacity:.7}
 <section class="band">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t12">Атмосфера</p>
 <h2 class="d d-l" data-t="t31">Гудаури —<br/><span class="accent">реальные кадры</span><br/>со склона</h2>
 </div>
 <div class="gallery">
@@ -1323,7 +1311,6 @@ summary:active{opacity:.7}
 <section class="band-tight">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t13">Выбор снаряда</p>
 <h2 class="d d-l" data-t="t32">Лыжи или сноуборд — <span class="accent">выбирайте</span></h2>
 </div>
 <div class="split">
@@ -1349,7 +1336,6 @@ summary:active{opacity:.7}
 <img alt="" src="img/mountains.webp"/>
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t14">Не только уроки</p>
 <h2 class="d d-l" data-t="t35">Гудаури — это<br/><span class="accent">больше, чем лыжи</span></h2>
 <p class="lede" data-t="t55">Мы поможем организовать не только обучение, но и лучшие зимние впечатления в горах.</p>
 </div>
@@ -1381,22 +1367,18 @@ summary:active{opacity:.7}
 <section class="band" style="background:var(--ink-2);border-block:1px solid var(--line)">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t15">Наши преимущества</p>
 <h2 class="d d-l" data-t="t40">Почему выбирают<br/><span class="accent">Easy Ski Gudauri</span></h2>
 </div>
 <div class="adv">
 <div class="adv-item">
-<span class="mark">01</span>
 <h3 class="d d-s" data-t="t41">Личный подход</h3>
 <p data-t="t91">Ты — не номер в расписании, а конкретный человек, о котором помнит инструктор.</p>
 </div>
 <div class="adv-item">
-<span class="mark">02</span>
 <h3 class="d d-s" data-t="t42">Прямая связь с основателями</h3>
 <p data-t="t92">Пишешь не в обезличенный колл-центр, а напрямую в WhatsApp или Telegram — и получаешь ответ от человека, который отвечает за качество.</p>
 </div>
 <div class="adv-item">
-<span class="mark">03</span>
 <h3 class="d d-s" data-t="t43">Гибкое расписание</h3>
 <p data-t="t93">Подстраиваемся под твой день в Гудаури, а не наоборот.</p>
 </div>
@@ -1404,10 +1386,10 @@ summary:active{opacity:.7}
 </div>
 </section>
 <!-- GUIDE -->
-<section class="band guide-sec ru-only" id="guide">
+<section class="band guide-sec" id="guide">
 <div class="wrap">
+<div class="guide-lang" data-l="ru" lang="ru">
 <div class="head">
-<p class="eyebrow">Гид по Гудаури</p>
 <h2 class="d d-l">Полезное<br/><span class="accent">перед поездкой</span></h2>
 <p class="lede">Погода, ски-пасс, прокат и дорога из Тбилиси — короткие ответы на вопросы, которые нам задают каждый сезон.</p>
 </div>
@@ -1435,12 +1417,70 @@ summary:active{opacity:.7}
 </a></div>
 <p class="guide-all"><a class="btn btn-dark" href="/blog/">Все статьи</a></p>
 </div>
+<div class="guide-lang" data-l="en" lang="en">
+<div class="head">
+<h2 class="d d-l">Good to know<br/><span class="accent">before your trip</span></h2>
+<p class="lede">Weather, ski passes, rentals and the road from Tbilisi — short answers to the questions we get every season.</p>
+</div>
+<div class="g-grid g-grid-3"><a class="g-card" href="/en/blog/pogoda-gudauri">
+<span class="g-card-img"><img src="/img/blog/pogoda-gudauri.webp" alt="Snowy Caucasus ridge with low clouds above Gudauri" width="1600" height="900" loading="lazy" decoding="async"/></span>
+<span class="g-card-body">
+<h3 class="g-card-title">Gudauri weather and snow today: webcams, forecast and what to wear</h3>
+<span class="g-card-text">Official webcams, a forecast for three altitudes, wind and lifts — and how to dress so you don’t freeze.</span>
+<span class="g-card-more">Read</span>
+</span>
+</a><a class="g-card" href="/en/blog/ski-pass-gudauri">
+<span class="g-card-img"><img src="/img/blog/ski-pass-gudauri.webp" alt="Lift station in Gudauri with skiers at the entrance" width="1600" height="900" loading="lazy" decoding="async"/></span>
+<span class="g-card-body">
+<h3 class="g-card-title">Gudauri ski pass 2026/27: prices and where to buy</h3>
+<span class="g-card-text">The 2026/27 price table, kids’ rates, where to buy and whether you need a pass for your first lesson.</span>
+<span class="g-card-more">Read</span>
+</span>
+</a><a class="g-card" href="/en/blog/gudauri-dlya-novichkov">
+<span class="g-card-img"><img src="/img/blog/gudauri-dlya-novichkov.webp" alt="A skier on a gentle slope in Gudauri" width="1600" height="900" loading="lazy" decoding="async"/></span>
+<span class="g-card-body">
+<h3 class="g-card-title">Gudauri for beginners: where to ski on your first day</h3>
+<span class="g-card-text">Practice slopes, how your first day goes and the mistakes that make beginners give up.</span>
+<span class="g-card-more">Read</span>
+</span>
+</a></div>
+<p class="guide-all"><a class="btn btn-dark" href="/en/blog/">All articles</a></p>
+</div>
+<div class="guide-lang" data-l="ka" lang="ka">
+<div class="head">
+<h2 class="d d-l">სასარგებლო<br/><span class="accent">მოგზაურობამდე</span></h2>
+<p class="lede">ამინდი, სკი-პასი, გაქირავება და გზა თბილისიდან — მოკლე პასუხები კითხვებზე, რომლებსაც ყოველ სეზონს გვისვამენ.</p>
+</div>
+<div class="g-grid g-grid-3"><a class="g-card" href="/ka/blog/pogoda-gudauri">
+<span class="g-card-img"><img src="/img/blog/pogoda-gudauri.webp" alt="თოვლიანი კავკასიონის ქედი და დაბალი ღრუბლები გუდაურის თავზე" width="1600" height="900" loading="lazy" decoding="async"/></span>
+<span class="g-card-body">
+<h3 class="g-card-title">ამინდი და თოვლი გუდაურში ახლა: ვებკამერები, პროგნოზი და რა ჩავიცვათ</h3>
+<span class="g-card-text">ოფიციალური ვებკამერები, პროგნოზი სამ სიმაღლეზე, ქარი და საბაგიროები — და როგორ ჩავიცვათ, რომ არ შეგვცივდეს.</span>
+<span class="g-card-more">წაკითხვა</span>
+</span>
+</a><a class="g-card" href="/ka/blog/ski-pass-gudauri">
+<span class="g-card-img"><img src="/img/blog/ski-pass-gudauri.webp" alt="საბაგიროს სადგური გუდაურში, მოთხილამურეები შესასვლელთან" width="1600" height="900" loading="lazy" decoding="async"/></span>
+<span class="g-card-body">
+<h3 class="g-card-title">სკი-პასი გუდაურში 2026/27: ფასები და სად ვიყიდოთ</h3>
+<span class="g-card-text">ფასების ცხრილი 2026/27 სეზონზე, საბავშვო ტარიფები, სად ვიყიდოთ და საჭიროა თუ არა სკი-პასი პირველ გაკვეთილზე.</span>
+<span class="g-card-more">წაკითხვა</span>
+</span>
+</a><a class="g-card" href="/ka/blog/gudauri-dlya-novichkov">
+<span class="g-card-img"><img src="/img/blog/gudauri-dlya-novichkov.webp" alt="მოთხილამურე გოგონა გუდაურის დამრეც ფერდობზე" width="1600" height="900" loading="lazy" decoding="async"/></span>
+<span class="g-card-body">
+<h3 class="g-card-title">გუდაური დამწყებთათვის: სად ვისრიალოთ პირველ დღეს</h3>
+<span class="g-card-text">სასწავლო ფერდობები, როგორ გადის პირველი დღე და შეცდომები, რის გამოც დამწყებები სრიალს თავს ანებებენ.</span>
+<span class="g-card-more">წაკითხვა</span>
+</span>
+</a></div>
+<p class="guide-all"><a class="btn btn-dark" href="/ka/blog/">ყველა სტატია</a></p>
+</div>
+</div>
 </section>
 <!-- FAQ -->
 <section class="band" id="faq">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t16">Вопросы</p>
 <h2 class="d d-l" data-t="t44">Частые<br/><span class="hollow">вопросы</span></h2>
 </div>
 <div class="faq">
@@ -1471,15 +1511,14 @@ summary:active{opacity:.7}
 <section class="band-tight" style="background:var(--ink-2);border-block:1px solid var(--line)">
 <div class="wrap">
 <div class="head">
-<p class="eyebrow" data-t="t17">Если вы здесь впервые</p>
 <h2 class="d d-l" data-t="t45">Впервые в Гудаури?<br/><span class="accent">Мы поможем разобраться</span></h2>
 </div>
 <div class="q-list">
-<div><em>01</em><b data-t="t104">Где взять хорошую экипировку?</b></div>
-<div><em>02</em><b data-t="t105">Какого инструктора выбрать?</b></div>
-<div><em>03</em><b data-t="t106">Где кататься новичку?</b></div>
-<div><em>04</em><b data-t="t107">Хотите попробовать фрирайд?</b></div>
-<div><em>05</em><b data-t="t108">Куда отправиться на снегоходах?</b></div>
+<div><b data-t="t104">Где взять хорошую экипировку?</b></div>
+<div><b data-t="t105">Какого инструктора выбрать?</b></div>
+<div><b data-t="t106">Где кататься новичку?</b></div>
+<div><b data-t="t107">Хотите попробовать фрирайд?</b></div>
+<div><b data-t="t108">Куда отправиться на снегоходах?</b></div>
 </div>
 <p class="note" data-t="t58">Напишите нам — подскажем и поможем организовать отдых в Гудаури.</p>
 <div class="btn-row" style="margin-top:24px">
@@ -1530,7 +1569,9 @@ summary:active{opacity:.7}
 <a data-t="t126" href="#method">Метод</a>
 <a data-t="t127" href="#lesson">Формат урока</a>
 <a data-t="t128" href="#gudauri">Гудаури</a>
-<a class="ru-only" href="/blog/">Гид по Гудаури</a>
+<a data-l="ru" href="/blog/">Гид по Гудаури</a>
+<a data-l="en" href="/en/blog/">Gudauri Guide</a>
+<a data-l="ka" href="/ka/blog/">გუდაურის გზამკვლევი</a>
 <a data-t="t129" href="#faq">Вопросы</a>
 </div>
 <div class="col">
@@ -1706,6 +1747,8 @@ summary:active{opacity:.7}
 
   var saved = null;
   try { saved = localStorage.getItem(LKEY); } catch(e){}
+  var qlang = (location.search.match(/[?&]lang=(ru|en|ka)\b/) || [])[1];
+  if(qlang){ saved = qlang; try { localStorage.setItem(LKEY, qlang); } catch(e){} }
   if(saved && saved !== 'ru') setLang(saved);
 
   /* ---------- вертикальные ролики: запуск по клику ---------- */
